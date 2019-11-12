@@ -13,7 +13,7 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="assets/css/menu.css">
 <link href="assets/css/owl.carousel.css" rel="stylesheet">
-<!-- Contact us VALIDETION -->
+
 <script type="text/javascript">
 
 function contact_formreservation()
@@ -26,7 +26,6 @@ var telephonereservation = document.getElementById('telephonereservation').value
 var messagereservation = document.getElementById('messagereservation').value;
 var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
   	
- //var contact_validate = '/^+\d{10-20}(,\d{10-20})*$/g';
 if (pick_a_datereservation == ''){
   alert('Please Enter Pick a date');
   document.getElementById('pick_a_datereservation').focus();  
@@ -64,10 +63,8 @@ if (messagereservation == ''){
 }
  return true; 
 }
- 
 </script>
-<!-- END:Contact us VALIDETION -->
-<!-- Contact us VALIDETION -->
+
 <script type="text/javascript">
 
 function contact_form()
@@ -77,8 +74,6 @@ var email = document.getElementById('email').value;
 var telephone = document.getElementById('telephone').value;
 var message = document.getElementById('message').value;
 var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-  	
- //var contact_validate = '/^+\d{10-20}(,\d{10-20})*$/g';
 
 if (name == ''){
   alert('Please Enter Name');
@@ -107,14 +102,12 @@ if (message == ''){
 }
  return true; 
 }
- 
 </script>
-<!-- END:Contact us VALIDETION -->
+
 </head>
 <body>
 <!-- Header -->
 <header>
-  <div class="top-border"></div>
   <div class="top-bar">
     <div class="container">
       <div class="row">
@@ -122,10 +115,10 @@ if (message == ''){
           <div class="top-social"> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-yelp" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a> </div>
         </div>
         <div class="col-md-4 col-sm-4">
-          <div class="logo text-center"><img src="assets/img/logo.jpg" class="img-responsive"></div>
+          <div class="logo text-center" id="userLogo"><img src="https://via.placeholder.com/75" class="img-responsive"></div>
         </div>
         <div class="col-md-4 col-sm-4">
-          <div class="top-call"> <i class="fa fa-phone" aria-hidden="true"></i> 0000 000 0000 </div>
+          <div class="top-call" id="userNumber"> <i class="fa fa-phone" aria-hidden="true"></i> 0000 000 0000 </div>
         </div>
       </div>
     </div>
@@ -142,7 +135,7 @@ if (message == ''){
           <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
               <li><a href="#">Home</a></li>
-              <li><a href="#About-Us">About</a></li>
+              <li><a href="#About-Us">About Us</a></li>
               <li><a href="#menu">Menu</a></li>
               <li><a href="#reservation">Reservation</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
@@ -169,24 +162,24 @@ if (message == ''){
         <div class="item active"> <img src="assets/img/slider/slider_01.jpg" class="img-responsive">
           <div class="container">
             <div class="carousel-caption">
-              <h1><span>Welcome to the MyRestuarant</span></h1>
-              <p><span>Amazing and delicious dishes only with us!</span></p>
+              <h1 id="userRestaurantName"><span>Name of Your Restaurant Goes Here</span></h1>
+              <p id="userTagline"><span>Add a tagline to draw customers in!</span></p>
             </div>
           </div>
         </div>
         <div class="item"> <img src="assets/img/slider/slider_02.jpg" class="img-responsive">
           <div class="container">
             <div class="carousel-caption">
-              <h1><span>Welcome to the MyRestuarant</span></h1>
-              <p><span>Amazing and delicious dishes only with us!</span></p>
+                <h1 id="userRestaurantName"><span>Name of Your Restaurant Goes Here</span></h1>
+                <p id="userTagline"><span>Add a tagline to draw customers in!</span></p>
             </div>
           </div>
         </div>
         <div class="item"> <img src="assets/img/slider/slider_03.jpg" class="img-responsive">
           <div class="container">
             <div class="carousel-caption">
-              <h1><span>Welcome to the MyRestuarant</span></h1>
-              <p><span>Amazing and delicious dishes only with us!</span></p>
+                <h1 id="userRestaurantName"><span>Name of Your Restaurant Goes Here</span></h1>
+                <p id="userTagline"><span>Add a tagline to draw customers in!</span></p>
             </div>
           </div>
         </div>
@@ -196,7 +189,7 @@ if (message == ''){
   <!-- end slider -->
 </header>
 <!-- End Header -->
-<!-- about section -->
+<!-- About section -->
 <div class="about-section" id="About-Us">
   <div class="container">
     <h2>About Us</h2>
@@ -205,14 +198,14 @@ if (message == ''){
     <div class="gap"></div>
     <div class="col-md-6">
       <div class="about-content">
-        <h4>Welcome to <span>My Restuarant</span></h4>
-        <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-        <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-        <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
+        <h4>Welcome to <span id="userRestaurantNameAbout">Name of Your Restaurant Goes Here</span></h4>
+        <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
+        <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
+        <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="about-content"> <img src="assets/img/about_thum.jpg" class="img-responsive"> </div>
+      <div class="about-content"> <img src="assets/img/about_thum.jpg" class="img-responsive" id="userAboutImage"> </div>
     </div>
   </div>
 </div>
@@ -529,135 +522,20 @@ if (message == ''){
   </div>
 </div>
 <!-- End Menu Section -->
-<!-- Blog -->
-<div class="blog-section" id="blog">
-  <div class="container">
-    <h2>Blog</h2>
-    <div class="clearfix"></div>
-    <div class="title-line"></div>
-    <div class="gap"></div>
-    <div id="owl-demo" class="owl-carousel">
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="blog-box">
-          <div class="blog-user"> <a href="blog.html" target="_blank">
-            <div class="blog-img"><img src="assets/img/blog/blog1.jpg" alt="image" class="img-responsive"></div>
-            <div class="blog-day"> <span class="number">28</span> <span class="month">Oct</span> </div>
-            </a> </div>
-          <div class="blog-content">
-            <h4 class="title"><a href="blog.html" target="_blank">Blog User Name</a></h4>
-            <p class="dic">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet</p>
-            <p><a href="blog.html" target="_blank" class="read-more btn btn-xs">read more</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Blog -->
 <!-- reservation-section -->
 <div class="reservation-section" id="reservation">
   <div class="container">
     <div class="col-md-6">
       <h2>BOOK A TABLE OUR RESTAURANT?</h2>
-      <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-      <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum</p>
-      <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-      <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Opening Time</h3>
-      <h5>LUNCH SERVICE</h5>
-      <p>Firday - Sunday :12pm -1.30pm </p>
-      <h5>DINNER SERVICE</h5>
-      <p> Daily Booking available from 6pm - 9.30pm </p>
+      <p id="userReservationDetails">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
+      <p id="userReservationDetails">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum</p>
+      <p id="userReservationDetails">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
+      
+      <h3><i class="fa fa-clock-o" aria-hidden="true"></i> HOURS </h3>
+      <h5>Monday-Friday</h5>
+      <p id="userHoursWeekday"></p>
+      <h5>Saturday & Sunday</h5>
+      <p id="userHoursWeekend"></p>
     </div>
     <div class="col-md-6">
       <div class="reservation-form">
@@ -695,74 +573,6 @@ if (message == ''){
   </div>
 </div>
 <!-- end-reservation-section -->
-<!-- team-section -->
-<div class="team-section" id="team">
-  <div class="container">
-    <h2>Best Chefs For You</h2>
-    <div class="clearfix"></div>
-    <div class="title-line"></div>
-    <div class="gap"></div>
-    <div id="owl-demo-2" class="owl-carousel">
-      <div class="item col-md-12">
-        <div class="team-box">
-          <div class="team-inner"> <img src="assets/img/team/1.jpg" alt="" >
-            <div class="mask"></div>
-            <ul class="team-social-list">
-              <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-          <h6>Remeno Fentos</h6>
-          <div class="subtext">Senior Chef</div>
-        </div>
-      </div>
-      <div class="item col-md-12">
-        <div class="team-box">
-          <div class="team-inner"> <img src="assets/img/team/2.jpg" alt="" >
-            <div class="mask"></div>
-            <ul class="team-social-list">
-              <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-          <h6>Remeno Fentos</h6>
-          <div class="subtext">Senior Chef</div>
-        </div>
-      </div>
-      <div class="item col-md-12">
-        <div class="team-box">
-          <div class="team-inner"> <img src="assets/img/team/3.jpg" alt="" >
-            <div class="mask"></div>
-            <ul class="team-social-list">
-              <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-          <h6>Remeno Fentos</h6>
-          <div class="subtext">Senior Chef</div>
-        </div>
-      </div>
-      <div class="item col-md-12">
-        <div class="team-box">
-          <div class="team-inner"> <img src="assets/img/team/4.jpg" alt="" >
-            <div class="mask"></div>
-            <ul class="team-social-list">
-              <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-          <h6>Remeno Fentos</h6>
-          <div class="subtext">Senior Chef</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end-team-section -->
 <!-- testimonials-section -->
 <div class="testimonials-section" id="testimonials">
   <div class="container">
@@ -834,9 +644,9 @@ if (message == ''){
     <div class="col-md-6">
       <h2>CONTACT US</h2>
       <ul class="contact-infomation">
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Your Restaurant Address </li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> +00 000 000000</li>
-        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> info@myrestaurant.com</li>
+        <li><i class="fa fa-map-marker" id="userRestaurantAddress" aria-hidden="true"></i> Your Restaurant Address </li>
+        <li><i class="fa fa-phone" id="userNumber" aria-hidden="true"></i> +00 000 000000</li>
+        <li><i class="fa fa-envelope-o" id="userEmail" aria-hidden="true"></i> info@myrestaurant.com</li>
       </ul>
       <ul class="socials-footer">
         <li> <a title="Facebook'" target="_blank" href="#"> <i class="fa fa-facebook"></i> </a> </li>
@@ -853,10 +663,12 @@ if (message == ''){
   </div>
 </div>
 <!-- end-Contact-Section -->
+
 <!-- copyright-section -->
 <div class="copyright-section">
   <p>All Right Reserved • MyRestaurant • 2016</p>
 </div>
+
 <!-- end-copyright-section -->
 <a href="#" class="order-online"> <img src="assets/img/order_online_btn.png"> </a> <a class="crunchify-top" href="#">↑</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -916,7 +728,6 @@ if (message == ''){
       });
 
     });
-	
 	
 	$(document).ready(function() {
 
