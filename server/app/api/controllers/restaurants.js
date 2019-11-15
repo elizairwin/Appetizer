@@ -1,4 +1,4 @@
-const restaurantModel = require('../models/restaurants');
+const restaurantModel = require('../../../../models/restaurants');
 
 module.exports = {
  getById: function(req, res, next) {
