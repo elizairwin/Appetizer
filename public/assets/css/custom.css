@@ -51,7 +51,7 @@ a{
 .top-call{
 	width:100%; 
 	float:left; 
-	font-size:25px; 
+	font-size:20px; 
 	margin-top:38px; 
 	font-weight:bold;
 }
@@ -59,9 +59,9 @@ a{
 
 /* navigation */
 .navigation{
-	width:100%; 
+	width:100%;
 	float:left; 
-	background-color:#256E7A;
+	background-color:rgb(196, 19, 19);
 }
 .navigation .navbar{
 	margin-bottom:0px;
@@ -71,7 +71,7 @@ a{
 	text-transform:uppercase;
 }
 .navigation .nav > li > a:focus, .nav > li > a:hover{
-	background-color:#153F46;
+	background-color:red;
 }
 .navigation .navbar-nav{
 	text-align:center; width:100%;
@@ -80,6 +80,11 @@ a{
 	float:none; 
 	display:inline-block;
 }
+
+#userLogo{
+	width: 75%;
+}
+
 /* end-navigation */
 /* slider */
 .slider{
@@ -444,7 +449,7 @@ a{
 }
 .reservation-btn{
 	 padding: 12px 21px;
-	 background-color:#256E7A;
+	 background-color:red;
 	 color:#fff;
 	 font-size:14px;
 	 text-transform:uppercase;
@@ -658,7 +663,7 @@ a{
 	line-height:3.2rem;
 	font-size:1.4rem;
 	color:#fff;
-	background-color:#256E7A;
+	background-color:red;
 	text-decoration:none;
 	border-radius:3.2rem;
 	text-align:center;
@@ -675,7 +680,7 @@ a{
 .page-title-container{
 	width:100%;
 	float:left;
-	background-color:#3794A6;
+	background-color:red;
 	padding:15px 0px;
 }
 .page-title-container .page-title h1 {

@@ -115,7 +115,7 @@ if (message == ''){
           <div class="top-social"> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-yelp" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a> </div>
         </div>
         <div class="col-md-4 col-sm-4">
-          <div class="logo text-center" id="userLogo"><img src="https://via.placeholder.com/75" class="img-responsive"></div>
+          <div class="logo text-center" id="userLogo"><img src="assets/img/restaurantlogo.jpg" class="img-responsive"></div>
         </div>
         <div class="col-md-4 col-sm-4">
           <div class="top-call" id="userNumber"> <i class="fa fa-phone" aria-hidden="true"></i> 0000 000 0000 </div>
@@ -670,7 +670,6 @@ if (message == ''){
 </div>
 
 <!-- end-copyright-section -->
-<a href="#" class="order-online"> <img src="assets/img/order_online_btn.png"> </a> <a class="crunchify-top" href="#">↑</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
@@ -678,33 +677,43 @@ if (message == ''){
 
 <!-- start of customization script -->
 <script>
-  var staticDisplay = "Name of Your Restaurant Goes Here1"
-  document.getElementById('userRestaurantName').innerHTML = staticDisplay;
-  function dynamicform(){
-    document.getElementById('userRestaurantName').removeEventListener("click",dynamicform);
-      var f = document.createElement("form");
-      f.setAttribute('method',"post");
-      f.setAttribute('action',"/restaurantName");
-      var i = document.createElement("input"); //input element, text
-      i.setAttribute('type',"text");
-      i.setAttribute('name',"restaurantname");
-      i.setAttribute('placeholder', staticDisplay);
-      i.setAttribute('size',"50");
-      var s = document.createElement("input"); //input element, Submit button
-      s.setAttribute('type',"submit");
-      s.setAttribute('value',"Save");
-      f.appendChild(i);
-      f.appendChild(s);
-      //and dont forget to add a submit button
-      // document.getElementsByTagName('body')[0].appendChild(f);
-      document.getElementById('userRestaurantName').innerHTML = "";
-      document.getElementById('userRestaurantName').appendChild(f);
-      // document.body.appendChild(f);
-  }
-  document.getElementById('userRestaurantName').addEventListener("click",dynamicform);
- </script>
- <!-- End of customization script -->
+
+var elementID = "userRestaurantName";
+     var staticDisplay = "Name of Your Restaurant Goes Here"
+     customizeName (elementID, staticDisplay);
+
+     function customizeName (elementID, staticDisplay){
+       console.log(elementID);
+
+       document.getElementById(elementID).innerHTML = staticDisplay;
+       document.getElementById(elementID).addEventListener("click",dynamicform);
+       function dynamicform(){
+         document.getElementById(elementID).removeEventListener("click",dynamicform);
+           var f = document.createElement("form");
+           f.setAttribute('method',"post");
+           f.setAttribute('action',"/customizeRestaurant");
+           var i = document.createElement("input"); //input element, text
+           i.setAttribute('type',"text");
+           i.setAttribute('name',"restaurantname");
+           i.setAttribute('placeholder', staticDisplay);
+           i.setAttribute('size',"50");
+           i.setAttribute("style", "background-color: black;");
+
+           var s = document.createElement("input"); //input element, Submit button
+           s.setAttribute('type',"submit");
+           s.setAttribute('value',"Save");
+           s.setAttribute("style", "background-color: black;");
+           f.appendChild(i);
+           f.appendChild(s);
+           //and dont forget to add a submit button
+           // document.getElementsByTagName('body')[0].appendChild(f);
+           document.getElementById(elementID).innerHTML = "";
+           document.getElementById(elementID).appendChild(f);
+           // document.body.appendChild(f);
+       }
+   }
  
+</script>
 <script>
 	$(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
