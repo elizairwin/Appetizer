@@ -1,0 +1,29 @@
+{
+  "name": "passport-login",
+  "version": "1.0.0",
+  "description": "git init -y\r npm install bcrypt body-parser express jsonwebtoken mongoose morgan --save\r npm install nodemon -g",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RRR2019/passport-login.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RRR2019/passport-login/issues"
+  },
+  "homepage": "https://github.com/RRR2019/passport-login#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.8",
+    "morgan": "^1.9.1"
+  }
+}
