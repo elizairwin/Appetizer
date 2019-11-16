@@ -455,6 +455,22 @@ a{
 	 text-transform:uppercase;
 	 border:0px;
 }
+.submit-btn{
+	padding: 12px 21px;
+	background-color:red;
+	color:#fff;
+	font-size:14px;
+	text-transform:uppercase;
+	border:0px;
+}
+.edit-btn{
+	padding: 12px 21px;
+	background-color:red;
+	color:#fff;
+	font-size:14px;
+	text-transform:uppercase;
+	border:0px;
+}
 .reservation-section h2{
 	text-transform:uppercase; 
 	font-size:24px; 
@@ -641,11 +657,11 @@ a{
 /* contact-section */
 
 /* copyright-section */
-.copyright-section{
+.submit-section{
 	width:100%; 
-	float:left;
+	text-align: center;
 }
-.copyright-section p{ 
+.submit-section p{ 
 	text-align:center; 
 	padding:15px 0px 15px 0px; 
 	margin-bottom:0px;
