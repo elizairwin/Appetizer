@@ -1,4 +1,3 @@
-
   // Start - This block of code retreives the most recent updates to their site.
   var username = "user001";  // TBD: This should read from the login information
     
@@ -8,25 +7,78 @@
     $.get("/customrestaurantdata/" + username, function(data) {
       if(data){ // If there is data for that user
         customRestaurantInfo = data;
+        console.log(data);
         
+        console.log("inside get");
         // Set all the fields one by one.
-        document.getElementById("userRestaurantName").innerHTML = customRestaurantInfo[0].restaurantname;
+        document.getElementById("userRestaurantName1").innerHTML = customRestaurantInfo[0].restaurantname;
+        document.getElementById("userRestaurantName2").innerHTML = customRestaurantInfo[0].restaurantname;
+        document.getElementById("userRestaurantName3").innerHTML = customRestaurantInfo[0].restaurantname;
+        document.getElementById("userRestaurantName4").innerHTML = customRestaurantInfo[0].restaurantname;
         document.getElementById("userTagline").innerHTML = customRestaurantInfo[0].restauranttagline;
         document.getElementById("userAboutText").innerHTML = customRestaurantInfo[0].restaurantabouttext;
-        // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
-        var elementID = "userRestaurantName";
-        var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
-        customizeName (elementID, staticDisplay, username); // Make the call
-        var elementID = "userTagline";
-        var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
-        customizeTagLine (elementID, staticDisplay, username); // Make the call
-        var elementID = "userAboutText";
-        var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
-        customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+        
+        // console.log(editMode);
+        // if (editMode){
+        //   // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
+        //   var elementID = "userRestaurantName1";
+        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeName (elementID, staticDisplay, username); // Make the call
+        //   var elementID = "userRestaurantName2";
+        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeName (elementID, staticDisplay, username); // Make the call
+        //   var elementID = "userRestaurantName3";
+        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeName (elementID, staticDisplay, username); // Make the call
+        //   var elementID = "userRestaurantName4";
+        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeName (elementID, staticDisplay, username); // Make the call
+        //   var elementID = "userTagline";
+        //   var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeTagLine (elementID, staticDisplay, username); // Make the call
+        //   var elementID = "userAboutText";
+        //   var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+        //   customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+        // }
       }
     });
   }
   // End - This block of code retreives the most recent updates to their site.
+    
+   // Start of Edit Function
+   var editMode = false;
+   function editFunction(id){
+     var editMode = true;
+     customizationCalls(editMode);
+   }
+   // End of Edit Function 
+
+  // Start - Make the customization calls if the edit mode is on
+  function customizationCalls(editMode){
+    console.log(editMode);
+    if (editMode){
+      // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
+      var elementID = "userRestaurantName1";
+      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeName (elementID, staticDisplay, username); // Make the call
+      var elementID = "userRestaurantName2";
+      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeName (elementID, staticDisplay, username); // Make the call
+      var elementID = "userRestaurantName3";
+      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeName (elementID, staticDisplay, username); // Make the call
+      var elementID = "userRestaurantName4";
+      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeName (elementID, staticDisplay, username); // Make the call
+      var elementID = "userTagline";
+      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeTagLine (elementID, staticDisplay, username); // Make the call
+      var elementID = "userAboutText";
+      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+    }
+  }
+  // End - Make the customization calls if the edit mode is on
 
   // Start - Customize RESTAURANT NAME
   function customizeName (elementID, staticDisplay, username){
@@ -119,6 +171,10 @@
       document.getElementById(elementID).appendChild(f);
     }
   }
+
+
+  
+
 
   // End - Customize RESTAURANT ABOUT TEXT
   // Steps to add new forms, store and retrieve them:
