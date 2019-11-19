@@ -67,7 +67,7 @@ a{
 	color:#fff; 
 	text-transform:uppercase;
 }
-.navigation .nav > li > a:focus, .nav > li > a:hover{
+.navigation .nav > li > a:hover{
 	background-color:red;
 }
 .navigation .navbar-nav{
@@ -77,6 +77,7 @@ a{
 	float:none; 
 	display:inline-block;
 }
+
 
 /* end-navigation */
 /* slider */
