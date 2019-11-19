@@ -5,7 +5,7 @@
   getCustomRestaurantData(username);
   function getCustomRestaurantData(username) {
     $.get("/customrestaurantdata/" + username, function(data) {
-      if(data){ // If there is data for that user
+      if(data.length > 0){ // If there is data for that user
         customRestaurantInfo = data;
         console.log(data);
         
@@ -15,34 +15,24 @@
         document.getElementById("userRestaurantName2").innerHTML = customRestaurantInfo[0].restaurantname;
         document.getElementById("userRestaurantName3").innerHTML = customRestaurantInfo[0].restaurantname;
         document.getElementById("userRestaurantName4").innerHTML = customRestaurantInfo[0].restaurantname;
-        document.getElementById("userTagline").innerHTML = customRestaurantInfo[0].restauranttagline;
-        document.getElementById("userAboutText").innerHTML = customRestaurantInfo[0].restaurantabouttext;
         
-        // console.log(editMode);
-        // if (editMode){
-        //   // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
-        //   var elementID = "userRestaurantName1";
-        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeName (elementID, staticDisplay, username); // Make the call
-        //   var elementID = "userRestaurantName2";
-        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeName (elementID, staticDisplay, username); // Make the call
-        //   var elementID = "userRestaurantName3";
-        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeName (elementID, staticDisplay, username); // Make the call
-        //   var elementID = "userRestaurantName4";
-        //   var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeName (elementID, staticDisplay, username); // Make the call
-        //   var elementID = "userTagline";
-        //   var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeTagLine (elementID, staticDisplay, username); // Make the call
-        //   var elementID = "userAboutText";
-        //   var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
-        //   customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
-        // }
-      }
-    });
-  }
+        document.getElementById("userTagline1").innerHTML = customRestaurantInfo[0].restauranttagline;
+        console.log(customRestaurantInfo[0].restauranttagline);
+        document.getElementById("userTagline2").innerHTML = customRestaurantInfo[0].restauranttagline;
+        document.getElementById("userTagline3").innerHTML = customRestaurantInfo[0].restauranttagline;
+        
+        document.getElementById("userAboutText1").innerHTML = customRestaurantInfo[0].restaurantabouttext;
+        document.getElementById("userAboutText2").innerHTML = customRestaurantInfo[0].restaurantabouttext;
+        document.getElementById("userAboutText3").innerHTML = customRestaurantInfo[0].restaurantabouttext;
+        
+      }else{
+        console.log("before seed call");
+        $.post("/seedinsert",() => {
+          console.log("seed insert done");
+        })
+    }
+  });
+}
   // End - This block of code retreives the most recent updates to their site.
     
    // Start of Edit Function
@@ -57,6 +47,7 @@
   function customizationCalls(editMode){
     console.log(editMode);
     if (editMode){
+      console.log("Entered Edit Mode");
       // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
       var elementID = "userRestaurantName1";
       var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
@@ -70,10 +61,22 @@
       var elementID = "userRestaurantName4";
       var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
       customizeName (elementID, staticDisplay, username); // Make the call
-      var elementID = "userTagline";
+      var elementID = "userTagline1";
       var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
       customizeTagLine (elementID, staticDisplay, username); // Make the call
-      var elementID = "userAboutText";
+      var elementID = "userTagline2";
+      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeTagLine (elementID, staticDisplay, username); // Make the call
+      var elementID = "userTagline3";
+      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeTagLine (elementID, staticDisplay, username); // Make the call
+      var elementID = "userAboutText1";
+      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+      var elementID = "userAboutText2";
+      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+      var elementID = "userAboutText3";
       var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
       customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
     }
