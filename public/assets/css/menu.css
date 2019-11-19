@@ -19,7 +19,7 @@
 	text-transform:uppercase;
 }
 #filters li span.active{
-	background: #256E7A;
+	background: red;
 	color:#fff;
 }
 #menulist .menu {
@@ -48,11 +48,11 @@
     margin-top: 1px;
 }
 .food-item .food-name a{
-	color:#256E7A;
+	color:rgb(255, 94, 0);
 	text-decoration:none;
 }
 .food-item .food-price{
-	color: #d91d1d;
+	color: #333;
     font-size: 20px;
     font-weight: 700;
     position: absolute;
