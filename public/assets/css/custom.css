@@ -91,7 +91,7 @@ a{
 	top:50%;
 }
 .slider .carousel-inner > .item > a > img, .carousel-inner > .item > img{
-	height:400px;
+	/* height:400px; */
 }
 .slider .carousel-caption{
 	text-align:center;
@@ -117,6 +117,9 @@ a{
 }
 .slider .carousel-indicators li{ 
 	border-radius: 0px;
+}
+.slider .img-responsive {
+	width: 100%;
 }
 /* end-slider */
 
