@@ -23,7 +23,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!-- Modal -->
-
+<!-- need to add code to have this only load once for the user -->
 <script>
 $(window).load(function()
 {
@@ -55,95 +55,6 @@ $(window).load(function()
 </div>
 
 </script>
-
-<script type="text/javascript">
-    function contact_formreservation() {
-      var pick_a_datereservation = document.getElementById('pick_a_datereservation').value;
-      var number_of_peoplereservation = document.getElementById('number_of_peoplereservation').value;
-      var namereservation = document.getElementById('namereservation').value;
-      var emailreservation = document.getElementById('emailreservation').value;
-      var telephonereservation = document.getElementById('telephonereservation').value;
-      var messagereservation = document.getElementById('messagereservation').value;
-      var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-
-      if (pick_a_datereservation == '') {
-        alert('Please Enter Pick a date');
-        document.getElementById('pick_a_datereservation').focus();
-        return false;
-      }
-      if (number_of_peoplereservation == '') {
-        alert('Please Enter Number of People');
-        document.getElementById('number_of_peoplereservation').focus();
-        return false;
-      }
-      if (namereservation == '') {
-        alert('Please Enter Name');
-        document.getElementById('namereservation').focus();
-        return false;
-      }
-      if (emailreservation == '') {
-        alert('please enter email');
-        document.getElementById('emailreservation').focus();
-        return false;
-      }
-      if (!filter.test(email)) {
-        alert('please enter valid E-mail');
-        document.getElementById('emailreservation').focus();
-        return false;
-      }
-      if (telephonereservation == '') {
-        alert('Please Enter Telephone No');
-        document.getElementById('telephonereservation').focus();
-        return false;
-      }
-      if (messagereservation == '') {
-        alert('Please Enter Message');
-        document.getElementById('messagereservation').focus();
-        return false;
-      }
-      return true;
-    }
-  </script>
-
-  <script type="text/javascript">
-
-    function contact_form() {
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var telephone = document.getElementById('telephone').value;
-      var message = document.getElementById('message').value;
-      var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-
-      if (name == '') {
-        alert('Please Enter Name');
-        document.getElementById('name').focus();
-        return false;
-      }
-      if (email == '') {
-        alert('please enter email');
-        document.getElementById('email').focus();
-        return false;
-      }
-      if (!filter.test(email)) {
-        alert('please enter valid E-mail');
-        document.getElementById('email').focus();
-        return false;
-      }
-      if (telephone == '') {
-        alert('Please Enter Telephone No');
-        document.getElementById('telephone').focus();
-        return false;
-      }
-      if (message == '') {
-        alert('Please Enter Message');
-        document.getElementById('message').focus();
-        return false;
-      }
-      return true;
-    }
-  </script>
-
-
 </head>
 
 <body>
@@ -285,7 +196,7 @@ $(window).load(function()
           <div class="title-line"></div>
           <ul id="filters" class="clearfix">
             <li><span id="userAppetizerHeader" class="filter" data-filter=".Appetizers">Appetizers</span></li>
-            <li><span id="userSaladsHeader" class="filter" data-filter=".Salads">Soup & Salad </span></li>
+            <li><span id="userSaladsHeader" class="filter" data-filter=".Salads">Soup & Salads</span></li>
             <li><span id="userMainsHeader" class="filter" data-filter=".Soups">Mains</span></li>
             <li><span id="userDessertsHeader" class="filter" data-filter=".Fried-Rice-Dishes">Desserts</span></li>
           </ul>
@@ -352,7 +263,7 @@ $(window).load(function()
               <div class="col-md-12">
                 <div class="food-item">
                   <h3 id="userSaladThreeName" class="food-name"><a href="#">Salad 3</a></h3>
-                  <p id="userSaladThreeDescription class="food-info">Use this space to describe the dish, including ingredients.</p>
+                  <p id="userSaladThreeDescription" class="food-info">Use this space to describe the dish, including ingredients.</p>
                   <p id="userSaladThreePrice" class="food-price">$16.95</p>
                 </div>
               </div>
@@ -443,9 +354,9 @@ $(window).load(function()
 
         <h3><i class="fa fa-clock-o" aria-hidden="true"></i> HOURS </h3>
         <h5>Monday-Friday</h5>
-        <p id="userHoursWeekday"></p>
+        <p id="userHoursWeekday">5pm-10pm</p>
         <h5>Saturday & Sunday</h5>
-        <p id="userHoursWeekend"></p>
+        <p id="userHoursWeekend">4pm-11pm</p>
       </div>
       <div class="col-md-6">
         <div class="reservation-form">
@@ -492,7 +403,7 @@ $(window).load(function()
 
   <div class="testimonials-section" id="testimonials">
     <div class="container">
-      <h2>Testimonials</h2>
+      <h2>Reviews</h2>
       <div class="title-line"></div>
       <div class="gap"></div>
       <div id="testimonials-Carousel" class="carousel slide" data-ride="carousel">
@@ -571,15 +482,14 @@ $(window).load(function()
       <div class="col-md-6">
         <h2>CONTACT US</h2>
         <ul class="contact-infomation">
-          <li><i class="fa fa-map-marker" id="userRestaurantAddress" aria-hidden="true"></i> Your Restaurant Address
-          </li>
-          <li><i class="fa fa-phone" id="userNumber" aria-hidden="true"></i> +00 000 000000</li>
-          <li><i class="fa fa-envelope-o" id="userEmail" aria-hidden="true"></i> info@myrestaurant.com</li>
+          <li><i class="fa fa-map-marker" id="userRestaurantAddress" aria-hidden="true"></i>Your Restaurant Address</li>
+          <li><i class="fa fa-phone" id="userNumber" aria-hidden="true"></i>+00 000 000000</li>
+          <li><i class="fa fa-envelope-o" id="userEmail" aria-hidden="true"></i>info@myrestaurant.com</li>
         </ul>
         <ul class="socials-footer">
-          <li> <a title="Facebook'" target="_blank" href="#"> <i class="fa fa-facebook"></i> </a> </li>
-          <li> <a title="Twitter" target="_blank" href="#"> <i class="fa fa-instagram"></i> </a> </li>
-          <li> <a title="Tumblr" target="_blank" href="#"> <i class="fa fa-yelp"></i> </a> </li>
+          <li> <a title="Facebook'" id="userRestaurantFacebook" target="_blank" href="#"> <i class="fa fa-facebook"></i> </a> </li>
+          <li> <a title="Twitter" id="userRestaurantInstagram" target="_blank" href="#"> <i class="fa fa-instagram"></i> </a> </li>
+          <li> <a title="Tumblr" id="userRestaurantYelp" target="_blank" href="#"> <i class="fa fa-yelp"></i> </a> </li>
         </ul>
         <div class="map">
           <iframe
@@ -604,7 +514,7 @@ $(window).load(function()
   <script src="assets/js/owl.carousel.js" type="text/javascript"></script>
   <script src="assets/js/customize.js" type="text/javascript"></script>
 
-<!-- Carousel Script -->
+<!-- Scroll script -->
 
   <script>
     $(function () {
@@ -622,6 +532,7 @@ $(window).load(function()
       });
     });
   </script>
+
   <script>
     jQuery(document).ready(function () {
       var offset = 220;
@@ -641,6 +552,7 @@ $(window).load(function()
       })
     });
   </script>
+
   <script>
     $(document).ready(function () {
 
@@ -701,7 +613,6 @@ $(window).load(function()
 
       // Run the show!
       filterList.init();
-
 
     });	
   </script>
