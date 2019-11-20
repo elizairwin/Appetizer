@@ -20,7 +20,7 @@ const UserSchema = new Schema({
   trim: true,
   required: true
  }
-});
+},{validateBeforeSave: false});
 
 // hash user password before saving into database
 UserSchema.pre('save', function(next){

@@ -1,12 +1,14 @@
 const express = require('express');
 const logger = require('morgan');
-const restaurants = require('./server/routes/restaurants') ;
+const restaurants = require('./server/routes/api/restaurants') ;
 const restaurantroute = require('./server/routes/restaurantroute') ;
-const users = require('./server/routes/users');
 const bodyParser = require('body-parser');
-const mongoose = require('./server/config/database'); //database configuration
+const mongoose = require('mongoose');
+const routes= require ("./server/routes")
 var jwt = require('jsonwebtoken');
 var app = express();
+
+const PORT = process.env.PORT || 3001;
 
 app.set('secretKey', 'nodeRestApi'); // jwt secret token
 
@@ -23,10 +25,10 @@ res.json({"tutorial" : "Build REST API with node.js"});
 });
 
 // public route
-app.use('/users', users);
+app.use(routes)
 
 // private route
-app.use('/restaurants', validateUser, restaurants);
+app.use('/api', validateUser, restaurants);
 
 restaurantroute(app);
 
@@ -35,7 +37,7 @@ app.get('/favicon.ico', function(req, res) {
 });
 
 function validateUser(req, res, next) {
-  jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function(err, decoded) {
+  jwt.verify(req.body.token, req.app.get('secretKey'), function(err, decoded) {
     if (err) {
       res.json({status:"error", message: err.message, data:null});
     }else{
@@ -62,6 +64,6 @@ app.use(function(err, req, res, next) {
   else 
     res.status(500).json({message: "Something looks wrong :( !!!"});
 });
-app.listen(3000, function(){
- console.log('Node server listening on port 3000');
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
