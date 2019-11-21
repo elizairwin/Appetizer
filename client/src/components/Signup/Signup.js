@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
-import './signup.sass';
+import './signup.css';
 import { isEmail, isEmpty, isLength, isContainWhiteSpace } from "../../shared/validator";
 import API from "../../utils/API"
 
@@ -89,7 +89,7 @@ class Signup extends Component {
         const { errors, formSubmitted } = this.state;
 
         return (
-            <div className="Signup" >
+            <div id="Signup" >
                 <Row>
                     <form onSubmit={this.login} method="POST" encType="application/x-www-form-urlencoded" >
                     <FormGroup controlId="name" validationState={ formSubmitted ? (errors.name ? 'error' : 'success') : null }>
@@ -113,8 +113,8 @@ class Signup extends Component {
                             <HelpBlock>{errors.password}</HelpBlock>
                         }
                         </FormGroup>
-                        <Button type="submit" bsStyle="primary">Register</Button>
-                        <Button bsStyle="success" href="/users/authenticate">Sign In!</Button>
+                        <Button type="submit" bsStyle="primary" href="/login">Register</Button>
+                        <Button bsStyle="success" href="/login">Sign In!</Button>
                     </form>
                 </Row>
             </div>
