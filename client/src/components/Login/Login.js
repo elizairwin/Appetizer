@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
-import './login.sass';
+import './login.css';
 import { isEmail, isEmpty } from "../../shared/validator";
 import API from "../../utils/API"
 import decode from 'jwt-decode';
@@ -132,7 +132,7 @@ class Login extends Component {
         const { errors, formSubmitted } = this.state;
 
         return (
-            <div className="Login" >
+            <div id="Login" >
                 <Row>
                     <form onSubmit={this.login} method="POST" encType="application/x-www-form-urlencoded">
                     
@@ -150,7 +150,7 @@ class Login extends Component {
                             <HelpBlock>{errors.password}</HelpBlock>
                         }
                         </FormGroup>
-                        <Button type="submit" bsStyle="primary">Log In!</Button>
+                        <Button type="submit" bsStyle="primary" href="/restaurants">Log In!</Button>
                         <p>{this.state.message}</p>
 
                     </form>
