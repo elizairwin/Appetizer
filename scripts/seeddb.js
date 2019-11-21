@@ -17,23 +17,23 @@ const restaurantSeed = [
        userRestaurantAbouttext: "Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit",
        
        // menu info
-       userAppetizerHeader: "Appetizers",
+       userAppetizerHeader: "Appetizers", 
        userSaladsHeader: "Soup & Salads",
        userMainsHeader: "Mains",
        userDessertsHeader: "Desserts",
 
-       userAppetizerOneName: "Appetizer 1",
+       userAppetizerOneName: "Appetizer 1", 
        userAppetizerOneDescription: "Use this space to describe the dish, including ingredients.",
-       userAppetizerOnePrice: "$9.95",
+       userAppetizerOnePrice: "$9.95", 
        userAppetizerTwoName: "Appetizer 2",
-       userAppetizerTwoDescription: "Use this space to describe the dish, including ingredients.",
+       userAppetizerTwoDescription: "Use this space to describe the dish, including ingredients.", 
        userAppetizerTwoPrice: "$10.95",
        userAppetizerThreeName: "Appetizer 3",
-       userAppetizerThreeDescription: "Use this space to describe the dish, including ingredients.",
-       userAppetizerThreePrice: "$11.95",
-       userAppetizerFourName: "Appetizer 4",
+       userAppetizerThreeDescription: "Use this space to describe the dish, including ingredients.", 
+       userAppetizerThreePrice: "$11.95", 
+       userAppetizerFourName: "Appetizer 4", 
        userAppetizerFourDescription: "Use this space to describe the dish, including ingredients.",
-       userAppetizerFourPrice: "$12.95",
+       userAppetizerFourPrice: "$12.95", 
 
        userSoupOneName: "Soup 1",
        userSoupOneDescription: "Use this space to describe the dish, including ingredients.",
@@ -82,7 +82,7 @@ const restaurantSeed = [
        userDessertThreePrice: "$9.95",
 
        // hours
-       userHoursWeekday: "5pm-10pm",
+       userHoursWeekday: "5pm-10pm", 
        userHoursWeekend: "4pm-11pm",
 
        // contact

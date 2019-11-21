@@ -22,7 +22,7 @@ module.exports = function(app) {
     const restaurantSeed = [
       {
         // main restaurant info
-        username: "user001",
+        username: "user001", 
         userRestaurantName: "Your Restaurant Name Goes Here",
         userRestaurantTagline: "Your Tag Line Goes Here",
         userRestaurantAbouttext: "Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit",
