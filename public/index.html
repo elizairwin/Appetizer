@@ -25,10 +25,25 @@
 <!-- Modal -->
 <!-- need to add code to have this only load once for the user -->
 <script>
-$(window).load(function()
-{
-    $('#myModal').modal('show');
-});
+
+  var pageStatus = JSON.parse(localStorage.getItem("pstatus"));
+
+  if (pageStatus === null){
+
+      pageStatus = [];
+
+      pageStatus.push("pageloaded");
+      pageStatus.push("noneditmode");
+
+      localStorage.setItem("pstatus", JSON.stringify(pageStatus));
+
+      $(window).load(function()
+        {
+          $('#myModal').modal('show');
+        });
+
+    }
+
 </script>
 
 <div class="container">
@@ -503,7 +518,7 @@ $(window).load(function()
   <!-- Submit Button -->
 
   <div class="submit-section">
-    <input class="submit-btn" id="userSubnmit" type="submit" name="submit" value="Submit" />
+    <input class="submit-btn" id="userSubmit" onclick="submitFunction(id)" type="submit" name="submit" value="Submit" />
   </div>
 
   <!-- Scripts -->
