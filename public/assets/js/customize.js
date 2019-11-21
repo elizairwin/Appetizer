@@ -35,13 +35,32 @@
 }
   // End - This block of code retreives the most recent updates to their site.
     
+  
+   var editMode;
+   console.log("just before page status");
+   console.log(pageStatus[1]);
+   if (pageStatus[1] === "editmode"){
+    console.log("edit more from local storage");
+    editMode = true;
+    customizationCalls(editMode);
+   }
+
    // Start of Edit Function
-   var editMode = false;
    function editFunction(id){
-     var editMode = true;
+     editMode = true;
+     pageStatus[1] = "editmode"
+     localStorage.setItem("pstatus", JSON.stringify(pageStatus));
      customizationCalls(editMode);
    }
    // End of Edit Function 
+
+   // Start of Submit Function
+   function submitFunction(id){
+    editMode = false;
+    pageStatus[1] = "noneditmode"
+    localStorage.setItem("pstatus", JSON.stringify(pageStatus));
+  }
+  // End of Submit Function 
 
   // Start - Make the customization calls if the edit mode is on
   function customizationCalls(editMode){
