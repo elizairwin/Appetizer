@@ -1,5 +1,6 @@
   // Start - This block of code retreives the most recent updates to their site.
   var username = "user001";  // TBD: This should read from the login information
+  var editMode;
     
   var customRestaurantInfo = []; // Has to be an array
   getCustomRestaurantData(username);
@@ -24,6 +25,14 @@
         document.getElementById("userAboutText1").innerHTML = customRestaurantInfo[0].restaurantabouttext;
         document.getElementById("userAboutText2").innerHTML = customRestaurantInfo[0].restaurantabouttext;
         document.getElementById("userAboutText3").innerHTML = customRestaurantInfo[0].restaurantabouttext;
+
+        console.log("just before page status");
+        console.log(pageStatus[1]);
+        if (pageStatus[1] === "editmode"){
+         console.log("edit more from local storage");
+         editMode = true;
+         customizationCalls(editMode);
+        }
         
       }else{
         console.log("before seed call");
@@ -36,14 +45,14 @@
   // End - This block of code retreives the most recent updates to their site.
     
   
-   var editMode;
-   console.log("just before page status");
-   console.log(pageStatus[1]);
-   if (pageStatus[1] === "editmode"){
-    console.log("edit more from local storage");
-    editMode = true;
-    customizationCalls(editMode);
-   }
+  //  var editMode;
+  //  console.log("just before page status");
+  //  console.log(pageStatus[1]);
+  //  if (pageStatus[1] === "editmode"){
+  //   console.log("edit more from local storage");
+  //   editMode = true;
+  //   customizationCalls(editMode);
+  //  }
 
    // Start of Edit Function
    function editFunction(id){
