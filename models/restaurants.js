@@ -27,5 +27,5 @@ userAppetizerHeader: {
     trim: true,
     required: true,
    }
-});
+});  
 module.exports = mongoose.model('Restaurant', RestaurantSchema)

@@ -114,7 +114,9 @@ class Signup extends Component {
                         }
                         </FormGroup>
                         <Button type="submit" bsStyle="primary" onClick={this.login}>Register</Button>
+
                         <Button bsStyle="success" href="/login">Sign In!</Button>
+
                     </div>
                 </Row>
             </div>
