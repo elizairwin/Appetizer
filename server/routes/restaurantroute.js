@@ -169,4 +169,19 @@ module.exports = function(app) {
          res.json(err);
        });
    });
+   app.post("/customizeAppetizerHeader/:userid", (req, res) => {
+    console.log("inside update appetizer route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userAppetizerHeader": req.body.userAppetizerHeader
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
 }
