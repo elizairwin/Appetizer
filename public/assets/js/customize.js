@@ -60,11 +60,17 @@
    // Start of Submit Function
    function submitFunction(id){
     editMode = false;
+    alert("You have published your site. No longer in edit mode");
     document.getElementById("userEdit").innerHTML = "Edit";
     pageStatus[1] = "noneditmode"
     localStorage.setItem("pstatus", JSON.stringify(pageStatus));
+    document.getElementById("userRestaurantName1").removeEventListener("click", dynamicform1, true);
   }
   // End of Submit Function 
+
+  function dynamicform1(){
+    console.log("Inside dynamic form1");
+  }
 
   // Start - Make the customization calls if the edit mode is on
   function customizationCalls(editMode){
