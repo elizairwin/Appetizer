@@ -25,15 +25,15 @@ module.exports = function(app) {
         username: "user001", 
         userRestaurantName: "Your Restaurant Name Goes Here",
         userRestaurantTagline: "Your Tag Line Goes Here",
-        userRestaurantAbouttext: "Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit",
+        userRestaurantAboutText: "Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit",
         
         // menu info
-        userAppetizerHeader: "Appetizers",
-        userSaladsHeader: "Soup & Salads",
-        userMainsHeader: "Mains",
-        userDessertsHeader: "Desserts",
+        userAppetizerHeader: "Appetizers"
+        // userSaladsHeader: "Soup & Salads",
+        // userMainsHeader: "Mains",
+        // userDessertsHeader: "Desserts",
 
-        userAppetizerOneName: "Appetizer 1",
+        // userAppetizerOneName: "Appetizer 1",
         // userAppetizerOneDescription: "Use this space to describe the dish, including ingredients.",
         // userAppetizerOnePrice: "$9.95",
         // userAppetizerTwoName: "Appetizer 2",
@@ -92,19 +92,19 @@ module.exports = function(app) {
         // userDessertThreeDescription: "Use this space to describe the dish, including ingredients.",
         // userDessertThreePrice: "$9.95",
 
-        // hours
-        userHoursWeekday: "5pm-10pm",
-        userHoursWeekend: "4pm-11pm",
+        // // hours
+        // userHoursWeekday: "5pm-10pm",
+        // userHoursWeekend: "4pm-11pm",
 
-        // contact
-        userRestaurantAddress: "Your Restaurant Address",
-        userNumber: "+00 000 000000",
-        userEmail: "info@myrestaurant.com",
+        // // contact
+        // userRestaurantAddress: "Your Restaurant Address",
+        // userNumber: "+00 000 000000",
+        // userEmail: "info@myrestaurant.com",
 
-        // socials
-        userRestaurantFacebook: " ",
-        userRestaurantInstagram: " ",
-        userRestaurantYelp: " ",
+        // // socials
+        // userRestaurantFacebook: " ",
+        // userRestaurantInstagram: " ",
+        // userRestaurantYelp: " ",
 
       }
     ];
@@ -126,7 +126,7 @@ module.exports = function(app) {
     console.log("inside update name route");
      dbRestaurant.updateOne(
        {"username": req.params.userid,
-        "restaurantname": req.body.restaurantname
+        "userRestaurantName": req.body.userRestaurantName
        })
        .then(dbRestaurant => {
          console.log("Done");
@@ -142,7 +142,7 @@ module.exports = function(app) {
     console.log("inside update tag line route");
      dbRestaurant.updateOne(
        {"username": req.params.userid,
-        "restauranttagline": req.body.restauranttagline
+        "userRestaurantTagline": req.body.userRestaurantTagline
        })
        .then(dbRestaurant => {
          console.log("Done");
@@ -158,7 +158,7 @@ module.exports = function(app) {
     console.log("inside update about text route");
      dbRestaurant.updateOne(
        {"username": req.params.userid,
-        "restaurantabouttext": req.body.restaurantabouttext
+        "userRestaurantAboutText": req.body.userRestaurantAboutText
        })
        .then(dbRestaurant => {
          console.log("Done");

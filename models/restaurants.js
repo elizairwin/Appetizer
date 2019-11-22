@@ -7,17 +7,17 @@ username: {
  trim: true,
  required: true,
  },
-restaurantname: {
+userRestaurantName: {
  type: String,
  trim: true,
  required: true,
 },
-restauranttagline: {
+userRestaurantTagline: {
  type: String,
  trim: true,
  required: true,
 },
-restaurantabouttext: {
+userRestaurantAboutText: {
  type: String,
  trim: true,
  required: true,
