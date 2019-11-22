@@ -12,19 +12,22 @@
         
         console.log("inside get");
         // Set all the fields one by one.
-        document.getElementById("userRestaurantName1").innerHTML = customRestaurantInfo[0].restaurantname;
-        document.getElementById("userRestaurantName2").innerHTML = customRestaurantInfo[0].restaurantname;
-        document.getElementById("userRestaurantName3").innerHTML = customRestaurantInfo[0].restaurantname;
-        document.getElementById("userRestaurantName4").innerHTML = customRestaurantInfo[0].restaurantname;
+        document.getElementById("userRestaurantName1").innerHTML = customRestaurantInfo[0].userRestaurantName;
+        document.getElementById("userRestaurantName2").innerHTML = customRestaurantInfo[0].userRestaurantName;
+        document.getElementById("userRestaurantName3").innerHTML = customRestaurantInfo[0].userRestaurantName;
+        document.getElementById("userRestaurantName4").innerHTML = customRestaurantInfo[0].userRestaurantName;
         
-        document.getElementById("userTagline1").innerHTML = customRestaurantInfo[0].restauranttagline;
-        console.log(customRestaurantInfo[0].restauranttagline);
-        document.getElementById("userTagline2").innerHTML = customRestaurantInfo[0].restauranttagline;
-        document.getElementById("userTagline3").innerHTML = customRestaurantInfo[0].restauranttagline;
+        document.getElementById("userTagline1").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
+        // console.log(customRestaurantInfo[0].restauranttagline);
+        document.getElementById("userTagline2").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
+        document.getElementById("userTagline3").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
         
-        document.getElementById("userAboutText1").innerHTML = customRestaurantInfo[0].restaurantabouttext;
-        document.getElementById("userAboutText2").innerHTML = customRestaurantInfo[0].restaurantabouttext;
-        document.getElementById("userAboutText3").innerHTML = customRestaurantInfo[0].restaurantabouttext;
+        document.getElementById("userAboutText1").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
+        document.getElementById("userAboutText2").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
+        document.getElementById("userAboutText3").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
+        
+        document.getElementById("userAppetizerHeader").innerHTML = customRestaurantInfo[0].userAppetizerHeader;
+        console.log(customRestaurantInfo[0].userAppetizerHeader);
 
         console.log("just before page status");
         console.log(pageStatus[1]);
@@ -107,6 +110,10 @@
       var elementID = "userAboutText3";
       var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
       customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
+
+      var elementID = "userAppetizerHeader";
+      var staticDisplay = customRestaurantInfo[0].userAppetizerHeader; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeAppetizerHeader(elementID, staticDisplay, username); // Make the call
     }
   }
   // End - Make the customization calls if the edit mode is on
@@ -202,9 +209,6 @@
       document.getElementById(elementID).appendChild(f);
     }
   }
-
-
-  
 
 
   // End - Customize RESTAURANT ABOUT TEXT
