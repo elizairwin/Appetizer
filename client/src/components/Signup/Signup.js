@@ -91,7 +91,7 @@ class Signup extends Component {
         return (
             <div id="Signup" >
                 <Row>
-                    <form onSubmit={this.login} method="POST" encType="application/x-www-form-urlencoded" >
+                    <div>
                     <FormGroup controlId="name" validationState={ formSubmitted ? (errors.name ? 'error' : 'success') : null }>
                             <ControlLabel>Name</ControlLabel>
                             <FormControl type="text" name="name" placeholder="Enter your name" onChange={this.handleInputChange} />
@@ -113,9 +113,9 @@ class Signup extends Component {
                             <HelpBlock>{errors.password}</HelpBlock>
                         }
                         </FormGroup>
-                        <Button type="submit" bsStyle="primary" href="/login">Register</Button>
-                        <Button bsStyle="success" href="/login">Sign In!</Button>
-                    </form>
+                        <Button type="submit" bsStyle="primary" onClick={this.login}>Register</Button>
+                        <Button bsStyle="success" href="/login">Sign In!</Button> 
+                    </div>
                 </Row>
             </div>
         )
