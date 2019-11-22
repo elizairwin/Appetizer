@@ -21,6 +21,11 @@ restaurantabouttext: {
  type: String,
  trim: true,
  required: true,
-}
+},
+userAppetizerHeader: {
+    type: String,
+    trim: true,
+    required: true,
+   }
 });
 module.exports = mongoose.model('Restaurant', RestaurantSchema)
