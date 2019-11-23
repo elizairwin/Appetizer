@@ -28,6 +28,25 @@
         document.getElementById("userAppetizerHeader").innerHTML = customRestaurantInfo[0].userAppetizerHeader;
         console.log(customRestaurantInfo[0].userAppetizerHeader);
 
+        document.getElementById("userAppetizerOneName").innerHTML = customRestaurantInfo[0].userAppetizerOneName;
+        console.log(customRestaurantInfo[0].userAppetizerOneName);
+        document.getElementById("userAppetizerOneDescription").innerHTML = customRestaurantInfo[0].userAppetizerOneDescription;
+        console.log(customRestaurantInfo[0].userAppetizerOneDescription);
+        document.getElementById("userAppetizerOnePrice").innerHTML = customRestaurantInfo[0].userAppetizerOnePrice;
+        console.log(customRestaurantInfo[0].userAppetizerOnePrice);
+
+        document.getElementById("userHoursWeekday").innerHTML = customRestaurantInfo[0].userHoursWeekday;
+        console.log(customRestaurantInfo[0].userHoursWeekday);
+        document.getElementById("userHoursWeekend").innerHTML = customRestaurantInfo[0].userHoursWeekend;
+        console.log(customRestaurantInfo[0].userHoursWeekend);
+
+        document.getElementById("userRestaurantAddress").innerHTML = customRestaurantInfo[0].userRestaurantAddress;
+        console.log(customRestaurantInfo[0].userRestaurantAddress);
+        document.getElementById("userNumber").innerHTML = customRestaurantInfo[0].userNumber;
+        console.log(customRestaurantInfo[0].userNumber);
+
+
+
         console.log("just before page status");
         console.log(pageStatus[1]);
         if (pageStatus[1] === "editmode"){
@@ -108,6 +127,29 @@
       var elementID = "userAppetizerHeader";
       var staticDisplay = customRestaurantInfo[0].userAppetizerHeader; // Should always be one restaurant now. Hence the 0 for the index.
       customizeAppetizerHeader(elementID, staticDisplay, username); // Make the call
+      var elementID = "userAppetizerOneName";
+      var staticDisplay = customRestaurantInfo[0].userAppetizerOneName; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeAppetizerOneName(elementID, staticDisplay, username); // Make the call
+      var elementID = "userAppetizerOneDescription";
+      var staticDisplay = customRestaurantInfo[0].userAppetizerOneDescription; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeAppetizerOneDescription(elementID, staticDisplay, username); // Make the call
+      var elementID = "userAppetizerOnePrice";
+      var staticDisplay = customRestaurantInfo[0].userAppetizerOnePrice; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeAppetizerOnePrice(elementID, staticDisplay, username); // Make the call
+
+      var elementID = "userHoursWeekday";
+      var staticDisplay = customRestaurantInfo[0].userHoursWeekday; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeHoursWeekday(elementID, staticDisplay, username); // Make the call
+      var elementID = "userHoursWeekend";
+      var staticDisplay = customRestaurantInfo[0].userHoursWeekend; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeHoursWeekday(elementID, staticDisplay, username); // Make the call
+
+      var elementID = "userRestaurantAddress";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantAddress; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeRestaurantAddress(elementID, staticDisplay, username); // Make the call
+      var elementID = "userNumber";
+      var staticDisplay = customRestaurantInfo[0].userNumber; // Should always be one restaurant now. Hence the 0 for the index.
+      customizeNumber(elementID, staticDisplay, username); // Make the call
     }
   }
   // End - Make the customization calls if the edit mode is on

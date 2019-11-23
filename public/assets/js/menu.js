@@ -75,10 +75,7 @@
       i.setAttribute('type',"text");
       i.setAttribute('name',"userAppetizerOneDescription");
       i.setAttribute('placeholder', staticDisplay);
-      // i.setAttribute('size',"50");
-      i.setAttribute('rows',"10");
-      i.setAttribute('placeholder', staticDisplay);
-      i.setAttribute('size',"50"); 
+      i.setAttribute('size',"100"); 
       i.setAttribute("style", "background-color: black;");
       var s = document.createElement("input"); //input element, Submit button
       s.setAttribute('type',"submit");

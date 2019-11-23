@@ -62,7 +62,7 @@ function customizeHoursWeekday (elementID, staticDisplay, username){
 
 // CONTACT SECTION IN TOTAL
 // Start - Customize RESTAURANT ADDRESS 
-function customizeHoursWeekend (elementID, staticDisplay, username){
+function customizeRestaurantAddress(elementID, staticDisplay, username){
     console.log("Inside Restaurant Address");
     
     // Add the event listener for that element
@@ -92,7 +92,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
   }
 // End - Customize RESTAURANT ADDRESS
 // Start - Customize NUMBER 
-function customizeHoursWeekend (elementID, staticDisplay, username){
+function customizeNumber (elementID, staticDisplay, username){
     console.log("Inside Number");
     
     // Add the event listener for that element
@@ -108,7 +108,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
       i.setAttribute('type',"text");
       i.setAttribute('name',"userNumber"); // LINE TO EDIT FOR IDS
       i.setAttribute('placeholder', staticDisplay);
-      i.setAttribute('size',"50"); // LINE TO EDIT FOR IDS IF NEEDED
+      i.setAttribute('size',"20"); // LINE TO EDIT FOR IDS IF NEEDED
       i.setAttribute("style", "background-color: black;"); // LINE TO EDIT FOR IDS IF NEEDED
       var s = document.createElement("input"); //input element, Submit button
       s.setAttribute('type',"submit");
@@ -122,7 +122,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
   }
   // End - Customize NUMBER 
   // Start - Customize EMAIL
-  function customizeHoursWeekend (elementID, staticDisplay, username){
+  function customizeEmail (elementID, staticDisplay, username){
     console.log("Inside Email");
     
     // Add the event listener for that element
@@ -154,7 +154,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
 
 // SOCIALS SECTION IN TOTAL
  // Start - Customize RESTAURANT FACEBOOK
-  function customizeHoursWeekend (elementID, staticDisplay, username){
+  function customizeFacebook(elementID, staticDisplay, username){
     console.log("Inside Restaurant Facebook");
     
     // Add the event listener for that element
@@ -184,7 +184,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
   }
   // End - Customize RESTAURANT FACEBOOK
   // Start - Customize RESTAURANT INSTAGRAM
-  function customizeHoursWeekend (elementID, staticDisplay, username){
+  function customizeInstagram (elementID, staticDisplay, username){
     console.log("Inside Restaurant Instagram");
     
     // Add the event listener for that element
@@ -214,7 +214,7 @@ function customizeHoursWeekend (elementID, staticDisplay, username){
   }
    // End - Customize RESTAURANT INSTAGRAM
    // Start - Customize RESTAURANT YELP
-   function customizeHoursWeekend (elementID, staticDisplay, username){
+   function customizeYelp(elementID, staticDisplay, username){
     console.log("Inside Restaurant Yelp");
     
     // Add the event listener for that element
