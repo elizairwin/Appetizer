@@ -28,14 +28,14 @@ module.exports = function(app) {
         userRestaurantAboutText: "Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit",
         
         // menu info
-        userAppetizerHeader: "Appetizers"
+        userAppetizerHeader: "Appetizers",
         // userSaladsHeader: "Soup & Salads",
         // userMainsHeader: "Mains",
         // userDessertsHeader: "Desserts",
 
-        // userAppetizerOneName: "Appetizer 1",
-        // userAppetizerOneDescription: "Use this space to describe the dish, including ingredients.",
-        // userAppetizerOnePrice: "$9.95",
+        userAppetizerOneName: "Appetizer 1",
+        userAppetizerOneDescription: "Use this space to describe the dish, including ingredients.",
+        userAppetizerOnePrice: "$9.95",
         // userAppetizerTwoName: "Appetizer 2",
         // userAppetizerTwoDescription: "Use this space to describe the dish, including ingredients.",
         // userAppetizerTwoPrice: "$10.95",
@@ -93,12 +93,12 @@ module.exports = function(app) {
         // userDessertThreePrice: "$9.95",
 
         // // hours
-        // userHoursWeekday: "5pm-10pm",
-        // userHoursWeekend: "4pm-11pm",
+        userHoursWeekday: "5pm-10pm",
+        userHoursWeekend: "4pm-11pm",
 
         // // contact
-        // userRestaurantAddress: "Your Restaurant Address",
-        // userNumber: "+00 000 000000",
+        userRestaurantAddress: "Your Restaurant Address",
+        userNumber: "+00 000 000000",
         // userEmail: "info@myrestaurant.com",
 
         // // socials
@@ -174,6 +174,111 @@ module.exports = function(app) {
      dbRestaurant.updateOne(
        {"username": req.params.userid,
         "userAppetizerHeader": req.body.userAppetizerHeader
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeAppetizerOneName/:userid", (req, res) => {
+    console.log("inside update appetizer one route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userAppetizerOneName": req.body.userAppetizerOneName
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeAppetizerOneDescription/:userid", (req, res) => {
+    console.log("inside update appetizer one route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userAppetizerOneDescription": req.body.userAppetizerOneDescription
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeAppetizerOnePrice/:userid", (req, res) => {
+    console.log("inside update appetizer one route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userAppetizerOnePrice": req.body.userAppetizerOnePrice
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeHoursWeekday/:userid", (req, res) => {
+    console.log("inside update hours route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userHoursWeekday": req.body.userHoursWeekday
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeHoursWeekend/:userid", (req, res) => {
+    console.log("inside update hours route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userHoursWeekend": req.body.userHoursWeekend
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeRestaurantAddress/:userid", (req, res) => {
+    console.log("inside update address route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userRestaurantAddress": req.body.userRestaurantAddress
+       })
+       .then(dbRestaurant => {
+         console.log("Done");
+         console.log(dbRestaurant);
+         res.redirect("../../index.html");
+       })
+       .catch(err => {
+         res.json(err);
+       });
+   });
+   app.post("/customizeNumber/:userid", (req, res) => {
+    console.log("inside update number route");
+     dbRestaurant.updateOne(
+       {"username": req.params.userid,
+        "userNumber": req.body.userNumber
        })
        .then(dbRestaurant => {
          console.log("Done");
