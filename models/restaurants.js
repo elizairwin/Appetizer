@@ -6,7 +6,7 @@ username: {
  type: String,
  trim: true,
  required: true,
- },
+    },
 restaurantname: {
  type: String,
  trim: true,
