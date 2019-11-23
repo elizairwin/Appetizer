@@ -7,103 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>MyRestaurant</title>
+  <title>Restaurant Template</title>
+  
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/custom.css" rel="stylesheet">
   <link href="assets/css/font-awesome.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
   <link href="assets/css/menu.css" rel="stylesheet">
   <link href="assets/css/owl.carousel.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript">
-
-    function contact_formreservation() {
-      var pick_a_datereservation = document.getElementById('pick_a_datereservation').value;
-      var number_of_peoplereservation = document.getElementById('number_of_peoplereservation').value;
-      var namereservation = document.getElementById('namereservation').value;
-      var emailreservation = document.getElementById('emailreservation').value;
-      var telephonereservation = document.getElementById('telephonereservation').value;
-      var messagereservation = document.getElementById('messagereservation').value;
-      var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
-
-      if (pick_a_datereservation == '') {
-        alert('Please Enter Pick a date');
-        document.getElementById('pick_a_datereservation').focus();
-        return false;
-      }
-      if (number_of_peoplereservation == '') {
-        alert('Please Enter Number of People');
-        document.getElementById('number_of_peoplereservation').focus();
-        return false;
-      }
-      if (namereservation == '') {
-        alert('Please Enter Name');
-        document.getElementById('namereservation').focus();
-        return false;
-      }
-      if (emailreservation == '') {
-        alert('please enter email');
-        document.getElementById('emailreservation').focus();
-        return false;
-      }
-      if (!filter.test(email)) {
-        alert('please enter valid E-mail');
-        document.getElementById('emailreservation').focus();
-        return false;
-      }
-      if (telephonereservation == '') {
-        alert('Please Enter Telephone No');
-        document.getElementById('telephonereservation').focus();
-        return false;
-      }
-      if (messagereservation == '') {
-        alert('Please Enter Message');
-        document.getElementById('messagereservation').focus();
-        return false;
-      }
-      return true;
+<!-- Modal -->
+<!-- need to add code to have this only load once for the user -->
+<script>
+  var pageStatus = JSON.parse(localStorage.getItem("pstatus"));
+  if (pageStatus === null){
+      pageStatus = [];
+      pageStatus.push("pageloaded");
+      pageStatus.push("noneditmode");
+      localStorage.setItem("pstatus", JSON.stringify(pageStatus));
+      $(window).load(function()
+        {
+          $('#myModal').modal('show');
+        });
     }
-  </script>
+</script>
 
-  <script type="text/javascript">
+<div class="container">
 
-    function contact_form() {
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var telephone = document.getElementById('telephone').value;
-      var message = document.getElementById('message').value;
-      var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Welcome!</h4>
+        </div>
+        <div class="modal-body">
+          <p>For your safety, you're only able to make edits when logged in.</p>
+          <p>Click "edit" to begin making changes to your site. Save as you go!</p>
+          <p>Click "submit" to publish your page. Sit back and wait for customers!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-      if (name == '') {
-        alert('Please Enter Name');
-        document.getElementById('name').focus();
-        return false;
-      }
-      if (email == '') {
-        alert('please enter email');
-        document.getElementById('email').focus();
-        return false;
-      }
-      if (!filter.test(email)) {
-        alert('please enter valid E-mail');
-        document.getElementById('email').focus();
-        return false;
-      }
-      if (telephone == '') {
-        alert('Please Enter Telephone No');
-        document.getElementById('telephone').focus();
-        return false;
-      }
-      if (message == '') {
-        alert('Please Enter Message');
-        document.getElementById('message').focus();
-        return false;
-      }
-      return true;
-    }
-  </script>
-
-
+</script>
 </head>
 
 <body>
@@ -146,7 +104,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#About-Us">About Us</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#reservation">Reservations</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <!-- <input class="edit-btn" id= "userEdit" type="submit" name="submit" value="Edit" /> -->
@@ -165,33 +123,34 @@
 
     <div class="slider">
       <div data-ride="carousel" class="carousel slide" id="myCarousel">
-<ol class="carousel-indicators">
+
+        <ol class="carousel-indicators">
           <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
           <li data-slide-to="1" data-target="#myCarousel"></li>
           <li data-slide-to="2" data-target="#myCarousel" class=""></li>
         </ol>
         <div role="listbox" class="carousel-inner">
-          <div class="item active"> <img src="assets/img/slider/burger3.webp" class="img-responsive">
+          <div class="item active"> <img src="assets/img/slider/breakfast.jpeg" class="img-responsive">
             <div class="container">
               <div class="carousel-caption">
                 <h1 id="userRestaurantName1"><span>Name of Your Restaurant Goes Here</span></h1>
-                <p id="userTagline1"><span>Add a tagline to draw customers in!</span></p>
+                <p id="userRestaurantTagline1"><span>Add a tagline to draw customers in!</span></p>
               </div>
             </div>
           </div>
-          <div class="item"> <img src="assets/img/slider/breakfast.jpeg" class="img-responsive">
+          <div class="item"> <img src="assets/img/slider/lobsterroll.jpg" class="img-responsive">
             <div class="container">
               <div class="carousel-caption">
                 <h1 id="userRestaurantName2"><span>Name of Your Restaurant Goes Here</span></h1>
-                <p class="userTagline2"><span>Add a tagline to draw customers in!</span></p>
+                <p id="userRestaurantTagline2"><span>Add a tagline to draw customers in!</span></p>
               </div>
             </div>
           </div>
-          <div class="item"> <img src="assets/img/slider/sundae.jpeg" class="img-responsive">
+          <div class="item"> <img src="assets/img/slider/burger.jpeg" class="img-responsive">
             <div class="container">
               <div class="carousel-caption">
                 <h1 id="userRestaurantName3"><span>Name of Your Restaurant Goes Here</span></h1>
-                <p id="userTagline3"><span>Add a tagline to draw customers in!</span></p>
+                <p id="userRestaurantTagline3"><span>Add a tagline to draw customers in!</span></p>
               </div>
             </div>
           </div>
@@ -212,22 +171,22 @@
       <div class="col-md-6">
         <div class="about-content">
           <h4>Welcome to <span id="userRestaurantName4">Name of Your Restaurant Goes Here</span></h4>
-          <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
+          <p id="userRestaurantAboutText1">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
             sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
             veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid
             abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-          <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
+          <p id="userRestaurantAboutText2">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
             sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
             veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid
             abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
-          <p id="userAboutText">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
+          <p id="userRestaurantAboutText3">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel
             sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
             veri cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid
             abhorreant cu vim, veri cetero e mel sea ne nostro communet veri eripuit </p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="about-content"> <img src="assets/img/about_thum.jpg" class="img-responsive" id="userAboutImage">
+        <div class="about-content"> <img src="assets/img/waiter.jpg" class="img-responsive" id="userAboutImage">
         </div>
       </div>
     </div>
@@ -244,7 +203,7 @@
           <div class="title-line"></div>
           <ul id="filters" class="clearfix">
             <li><span id="userAppetizerHeader" class="filter" data-filter=".Appetizers">Appetizers</span></li>
-            <li><span id="userSaladsHeader" class="filter" data-filter=".Salads">Soup & Salad </span></li>
+            <li><span id="userSaladsHeader" class="filter" data-filter=".Salads">Soup & Salads</span></li>
             <li><span id="userMainsHeader" class="filter" data-filter=".Soups">Mains</span></li>
             <li><span id="userDessertsHeader" class="filter" data-filter=".Fried-Rice-Dishes">Desserts</span></li>
           </ul>
@@ -311,7 +270,7 @@
               <div class="col-md-12">
                 <div class="food-item">
                   <h3 id="userSaladThreeName" class="food-name"><a href="#">Salad 3</a></h3>
-                  <p id="userSaladThreeDescription class="food-info">Use this space to describe the dish, including ingredients.</p>
+                  <p id="userSaladThreeDescription" class="food-info">Use this space to describe the dish, including ingredients.</p>
                   <p id="userSaladThreePrice" class="food-price">$16.95</p>
                 </div>
               </div>
@@ -393,7 +352,7 @@
 
   <div class="reservation-section" id="reservation">
     <div class="container">
-      <div class="col-md-6">
+      <div id="reserve" class="col-md-6">
         <h2>BOOK A TABLE OUR RESTAURANT?</h2>
         <p id="userReservationDetails">Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri
           cetero e mel sea ne nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid
@@ -402,9 +361,9 @@
 
         <h3><i class="fa fa-clock-o" aria-hidden="true"></i> HOURS </h3>
         <h5>Monday-Friday</h5>
-        <p id="userHoursWeekday"></p>
+        <p id="userHoursWeekday">5pm-10pm</p>
         <h5>Saturday & Sunday</h5>
-        <p id="userHoursWeekend"></p>
+        <p id="userHoursWeekend">4pm-11pm</p>
       </div>
       <div class="col-md-6">
         <div class="reservation-form">
@@ -451,13 +410,13 @@
 
   <div class="testimonials-section" id="testimonials">
     <div class="container">
-      <h2>Testimonials</h2>
+      <h2>Reviews</h2>
       <div class="title-line"></div>
       <div class="gap"></div>
       <div id="testimonials-Carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <div class="container text-center"> <img src="assets/img/testimonials/1.jpg">
+            <div class="container text-center"> <img src="assets/img/testimonials/patron2.jpeg">
               <div class="carousel-caption quote-test">
                 <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne
                   nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
@@ -468,7 +427,7 @@
             </div>
           </div>
           <div class="item">
-            <div class="container text-center"> <img src="assets/img/testimonials/2.jpg">
+            <div class="container text-center"> <img src="assets/img/testimonials/patron3.jpeg">
               <div class="carousel-caption quote-test">
                 <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne
                   nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
@@ -479,7 +438,7 @@
             </div>
           </div>
           <div class="item">
-            <div class="container text-center"> <img src="assets/img/testimonials/3.jpg">
+            <div class="container text-center"> <img src="assets/img/testimonials/patron4.jpeg">
               <div class="carousel-caption quote-test">
                 <p>Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim, veri cetero e mel sea ne
                   nostro communet veri eripuit Lorem ipsum dolor sit amet sale referrentur Aliquid abhorreant cu vim,
@@ -530,15 +489,14 @@
       <div class="col-md-6">
         <h2>CONTACT US</h2>
         <ul class="contact-infomation">
-          <li><i class="fa fa-map-marker" id="userRestaurantAddress" aria-hidden="true"></i> Your Restaurant Address
-          </li>
-          <li><i class="fa fa-phone" id="userNumber" aria-hidden="true"></i> +00 000 000000</li>
-          <li><i class="fa fa-envelope-o" id="userEmail" aria-hidden="true"></i> info@myrestaurant.com</li>
+          <li><i class="fa fa-map-marker" id="userRestaurantAddress" aria-hidden="true">Your Restaurant Address</li></i>
+          <li><i class="fa fa-phone" id="userNumber" aria-hidden="true">+00 000 000000</li></i>
+          <li><i class="fa fa-envelope-o" id="userEmail" aria-hidden="true">info@myrestaurant.com</li></i>
         </ul>
         <ul class="socials-footer">
-          <li> <a title="Facebook'" target="_blank" href="#"> <i class="fa fa-facebook"></i> </a> </li>
-          <li> <a title="Twitter" target="_blank" href="#"> <i class="fa fa-instagram"></i> </a> </li>
-          <li> <a title="Tumblr" target="_blank" href="#"> <i class="fa fa-yelp"></i> </a> </li>
+          <li> <a title="Facebook'" id="userRestaurantFacebook" target="_blank" href="#"> <i class="fa fa-facebook"></i> </a> </li>
+          <li> <a title="Instagram" id="userRestaurantInstagram" target="_blank" href="#"> <i class="fa fa-instagram"></i> </a> </li>
+          <li> <a title="Yelp" id="userRestaurantYelp" target="_blank" href="#"> <i class="fa fa-yelp"></i> </a> </li>
         </ul>
         <div class="map">
           <iframe
@@ -552,7 +510,7 @@
   <!-- Submit Button -->
 
   <div class="submit-section">
-    <input class="submit-btn" id="userSubnmit" type="submit" name="submit" value="Submit" />
+    <input class="submit-btn" id="userSubmit" onclick="submitFunction(id)" type="submit" name="submit" value="Submit" />
   </div>
 
   <!-- Scripts -->
@@ -562,8 +520,10 @@
   <script src="assets/js/jquery.mixitup.min.js" type="text/javascript"></script>
   <script src="assets/js/owl.carousel.js" type="text/javascript"></script>
   <script src="assets/js/customize.js" type="text/javascript"></script>
+  <script src="assets/js/menu.js" type="text/javascript"></script>
+  <script src="assets/js/hours&contact.js" type="text/javascript"></script>
 
-<!-- Carousel Script -->
+<!-- Scroll script -->
 
   <script>
     $(function () {
@@ -581,6 +541,7 @@
       });
     });
   </script>
+
   <script>
     jQuery(document).ready(function () {
       var offset = 220;
@@ -592,7 +553,6 @@
           jQuery('.crunchify-top').fadeOut(duration);
         }
       });
-
       jQuery('.crunchify-top').click(function (event) {
         event.preventDefault();
         jQuery('html, body').animate({ scrollTop: 0 }, duration);
@@ -600,11 +560,10 @@
       })
     });
   </script>
+
   <script>
     $(document).ready(function () {
-
       var owl = $("#owl-demo");
-
       owl.owlCarousel({
         autoPlay: 3000,
         stopOnHover: true,
@@ -613,15 +572,10 @@
         itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
         itemsTablet: [600, 3], //2 items between 600 and 0;
         itemsMobile: [480, 1] // itemsMobile disabled - inherit from itemsTablet option
-
       });
-
     });
-
     $(document).ready(function () {
-
       var owl = $("#owl-demo-2");
-
       owl.owlCarousel({
         autoPlay: 3000,
         stopOnHover: true,
@@ -630,18 +584,13 @@
         itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
         itemsTablet: [600, 3], //2 items between 600 and 0;
         itemsMobile: [480, 1] // itemsMobile disabled - inherit from itemsTablet option
-
       });
-
     });
   </script>
   <script type="text/javascript">
     $(function () {
-
       var filterList = {
-
         init: function () {
-
           // MixItUp plugin
           // http://mixitup.io
           $('#menulist').mixItUp({
@@ -653,15 +602,10 @@
               filter: '.Appetizers'
             }
           });
-
         }
-
       };
-
       // Run the show!
       filterList.init();
-
-
     });	
   </script>
 </body>
