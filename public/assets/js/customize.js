@@ -17,14 +17,13 @@
         document.getElementById("userRestaurantName3").innerHTML = customRestaurantInfo[0].userRestaurantName;
         document.getElementById("userRestaurantName4").innerHTML = customRestaurantInfo[0].userRestaurantName;
         
-        document.getElementById("userTagline1").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
-        // console.log(customRestaurantInfo[0].restauranttagline);
-        document.getElementById("userTagline2").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
-        document.getElementById("userTagline3").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
+        document.getElementById("userRestaurantTagline1").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
+        document.getElementById("userRestaurantTagline2").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
+        document.getElementById("userRestaurantTagline3").innerHTML = customRestaurantInfo[0].userRestaurantTagline;
         
-        document.getElementById("userAboutText1").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
-        document.getElementById("userAboutText2").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
-        document.getElementById("userAboutText3").innerHTML = customRestaurantInfo[0].userRestaurantAbouttext;
+        document.getElementById("userRestaurantAboutText1").innerHTML = customRestaurantInfo[0].userRestaurantAboutText;
+        document.getElementById("userRestaurantAboutText2").innerHTML = customRestaurantInfo[0].userRestaurantAboutText;
+        document.getElementById("userRestaurantAboutText3").innerHTML = customRestaurantInfo[0].userRestaurantAboutText;
         
         document.getElementById("userAppetizerHeader").innerHTML = customRestaurantInfo[0].userAppetizerHeader;
         console.log(customRestaurantInfo[0].userAppetizerHeader);
@@ -33,6 +32,7 @@
         console.log(pageStatus[1]);
         if (pageStatus[1] === "editmode"){
          console.log("edit more from local storage");
+         document.getElementById("userEdit").innerHTML = "In Edit Mode";
          editMode = true;
          customizationCalls(editMode);
         }
@@ -47,19 +47,10 @@
 }
   // End - This block of code retreives the most recent updates to their site.
     
-  
-  //  var editMode;
-  //  console.log("just before page status");
-  //  console.log(pageStatus[1]);
-  //  if (pageStatus[1] === "editmode"){
-  //   console.log("edit more from local storage");
-  //   editMode = true;
-  //   customizationCalls(editMode);
-  //  }
-
    // Start of Edit Function
    function editFunction(id){
      editMode = true;
+     document.getElementById("userEdit").innerHTML = "In Edit Mode";
      pageStatus[1] = "editmode"
      localStorage.setItem("pstatus", JSON.stringify(pageStatus));
      customizationCalls(editMode);
@@ -69,6 +60,7 @@
    // Start of Submit Function
    function submitFunction(id){
     editMode = false;
+    document.getElementById("userEdit").innerHTML = "Edit";
     pageStatus[1] = "noneditmode"
     localStorage.setItem("pstatus", JSON.stringify(pageStatus));
   }
@@ -81,34 +73,36 @@
       console.log("Entered Edit Mode");
       // Get ready to set up the listener for possible editing and make the call. This has to be done for each element.
       var elementID = "userRestaurantName1";
-      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      var staticDisplay = customRestaurantInfo[0].userRestaurantName; // Should always be one restaurant now. Hence the 0 for the index.
       customizeName (elementID, staticDisplay, username); // Make the call
       var elementID = "userRestaurantName2";
-      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      var staticDisplay = customRestaurantInfo[0].userRestaurantName; // Should always be one restaurant now. Hence the 0 for the index.
       customizeName (elementID, staticDisplay, username); // Make the call
       var elementID = "userRestaurantName3";
-      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      var staticDisplay = customRestaurantInfo[0].userRestaurantName; // Should always be one restaurant now. Hence the 0 for the index.
       customizeName (elementID, staticDisplay, username); // Make the call
       var elementID = "userRestaurantName4";
-      var staticDisplay = customRestaurantInfo[0].restaurantname; // Should always be one restaurant now. Hence the 0 for the index.
+      var staticDisplay = customRestaurantInfo[0].userRestaurantName; // Should always be one restaurant now. Hence the 0 for the index.
       customizeName (elementID, staticDisplay, username); // Make the call
-      var elementID = "userTagline1";
-      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      
+      var elementID = "userRestaurantTagline1";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantTagline; // Should always be one restaurant now. Hence the 0 for the index.
       customizeTagLine (elementID, staticDisplay, username); // Make the call
-      var elementID = "userTagline2";
-      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      var elementID = "userRestaurantTagline2";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantTagline; // Should always be one restaurant now. Hence the 0 for the index.
       customizeTagLine (elementID, staticDisplay, username); // Make the call
-      var elementID = "userTagline3";
-      var staticDisplay = customRestaurantInfo[0].restauranttagline; // Should always be one restaurant now. Hence the 0 for the index.
+      var elementID = "userRestaurantTagline3";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantTagline; // Should always be one restaurant now. Hence the 0 for the index.
       customizeTagLine (elementID, staticDisplay, username); // Make the call
-      var elementID = "userAboutText1";
-      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      
+      var elementID = "userRestaurantAboutText1";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantAboutText; // Should always be one restaurant now. Hence the 0 for the index.
       customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
-      var elementID = "userAboutText2";
-      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      var elementID = "userRestaurantAboutText2";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantAboutText; // Should always be one restaurant now. Hence the 0 for the index.
       customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
-      var elementID = "userAboutText3";
-      var staticDisplay = customRestaurantInfo[0].restaurantabouttext; // Should always be one restaurant now. Hence the 0 for the index.
+      var elementID = "userRestaurantAboutText3";
+      var staticDisplay = customRestaurantInfo[0].userRestaurantAboutText; // Should always be one restaurant now. Hence the 0 for the index.
       customizeRestaurantAboutText(elementID, staticDisplay, username); // Make the call
 
       var elementID = "userAppetizerHeader";
@@ -125,6 +119,7 @@
     // Add the event listener for that element
     document.getElementById(elementID).addEventListener("click",dynamicform);
     function dynamicform(){ // The function code block
+      console.log("Inside dynamic form - Name");
       document.getElementById(elementID).removeEventListener("click",dynamicform);
       var routename = "/customizeRestaurantName/";
       var f = document.createElement("form");
@@ -133,7 +128,7 @@
       f.setAttribute('action', routename + username); // Pass the user name for the call
       var i = document.createElement("input"); //input element, text
       i.setAttribute('type',"text");
-      i.setAttribute('name',"restaurantname");
+      i.setAttribute('name',"userRestaurantName");
       i.setAttribute('placeholder', staticDisplay);
       i.setAttribute('size',"50");
       i.setAttribute("style", "background-color: black;");
@@ -162,7 +157,7 @@
       f.setAttribute('action', routename + username); // Pass the user name for the call
       var i = document.createElement("input"); //input element, text
       i.setAttribute('type',"text");
-      i.setAttribute('name',"restauranttagline");
+      i.setAttribute('name',"userRestaurantTagline");
       i.setAttribute('placeholder', staticDisplay);
       i.setAttribute('size',"50");
       i.setAttribute("style", "background-color: black;");
@@ -192,7 +187,7 @@
       // var i = document.createElement("input"); //input element, text
       var i = document.createElement("textarea"); //input element, text
       i.setAttribute('type',"text");
-      i.setAttribute('name',"restaurantabouttext");
+      i.setAttribute('name',"userRestaurantAboutText");
       i.setAttribute('placeholder', staticDisplay);
       // i.setAttribute('size',"50");
       i.setAttribute('rows',"10");
