@@ -1,4 +1,6 @@
 import decode from 'jwt-decode';
+import API from '../utils/API'
+
 
 export default class AuthService {
     // Initializing important variables
@@ -9,16 +11,17 @@ export default class AuthService {
         this.getProfile = this.getProfile.bind(this)
     }
 
-    login(email, password) {
+    login(user) {
+        console.log(user)
         // Get a token from api server using the fetch api
-        return this.fetch(`${this.domain}/users/authenticate`, {
-            method: 'POST',
-            body: JSON.stringify({
-                email,
-                password
-            })
-        }).then(res => {
-            this.setToken(res.token) // Setting the token in localStorage
+         return API.authenticateUser(user)
+        // this.fetch(`${this.domain}/api/users/authenticate`, {
+        //     method: 'POST',
+        //     body: JSON.stringify(
+        //         user
+        //     )
+        .then(res => { console.log(res)
+            this.setToken(res.data.data.token) // Setting the token in localStorage
             return Promise.resolve(res);
         })
     }
@@ -68,7 +71,7 @@ export default class AuthService {
         // performs api calls sending the required authentication headers
         const headers = {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
 
         // Setting Authorization header

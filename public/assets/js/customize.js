@@ -1,7 +1,7 @@
   // Start - This block of code retreives the most recent updates to their site.
   var username = "user001";  // TBD: This should read from the login information
   var editMode;
-    
+
   var customRestaurantInfo = []; // Has to be an array
   getCustomRestaurantData(username);
   function getCustomRestaurantData(username) {

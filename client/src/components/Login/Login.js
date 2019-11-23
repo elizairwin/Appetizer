@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
 import './login.css';
 import { isEmail, isEmpty } from "../../shared/validator";
-import API from "../../utils/API"
-import decode from 'jwt-decode';
-import { Redirect } from 'react-router-dom'
+// import API from "../../utils/API"
+import { withRouter } from 'react-router-dom';
+import AuthService from '../AuthService';
 
 class Login extends Component {
 
@@ -18,13 +18,16 @@ class Login extends Component {
             loading: false, // Indicates in progress state of login form
             message: ""
         }
+        this.Auth = new AuthService();
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.login = this.login.bind(this);
     }
 
-    componentWillMount() {
-        console.log(this.loggedIn())
-        if (this.loggedIn()) {
-            return <Redirect to='/' />
+    componentWillMount(){
+        if(this.Auth.loggedIn()){
+            this.props.history.replace('/register');
         }
+        
     }
 
     handleInputChange = (event) => {
@@ -70,23 +73,31 @@ class Login extends Component {
 
         if(errors === true){
             const { formData } = this.state;
-                
 
-            API.authenticateUser(formData)
-            .then(
-                res => {
-                    if(res.data.status === "error"){
-                        this.setState({message: "Invalid email or password"})
-                    }
-                    if(res.data.status === "success"){
-                        // console.log(res.data.data.token);
-                        this.setState({message: res.data.message})
-                        this.setToken(res.data.data.token) // Setting the token in localStorage
-                        return Promise.resolve(res);
-                    }                                     
-                })
-                .catch(err => console.log(err))
-        } 
+            this.Auth.login(formData)
+            .then( res=>{
+                this.props.history.replace('/')
+            })
+            .catch(err =>{
+                console.log(err);
+            })
+    }
+
+            // API.authenticateUser(formData)
+            // .then(
+            //     res => {
+            //         if(res.data.status === "error"){
+            //             this.setState({message: "Invalid email or password"})
+            //         }
+            //         if(res.data.status === "success"){
+            //             // console.log(res.data.data.token);
+            //             this.setState({message: res.data.message})
+            //             this.setToken(res.data.data.token) // Setting the token in localStorage
+            //             return Promise.resolve(res);
+            //         }                                     
+            //     })
+            //     .catch(err => console.log(err))
+         
         
         else {
             this.setState({
@@ -96,36 +107,36 @@ class Login extends Component {
         }
     }
 
-    setToken(idToken) {
-        // Saves user token to localStorage
-        localStorage.setItem('id_token', idToken)
-    }
+    // setToken(idToken) {
+    //     // Saves user token to localStorage
+    //     localStorage.setItem('id_token', idToken)
+    // }
 
-    getToken() {
-        // Retrieves the user token from localStorage
-        return localStorage.getItem('id_token')
-    }
+    // getToken() {
+    //     // Retrieves the user token from localStorage
+    //     return localStorage.getItem('id_token')
+    // }
 
-    loggedIn() {
-        // Checks if there is a saved token and it's still valid
-        const token = this.getToken() // GEtting token from localstorage
-        return !!token && !this.isTokenExpired(token) // handwaiving here
-    }
+    // loggedIn() {
+    //     // Checks if there is a saved token and it's still valid
+    //     const token = this.getToken() // GEtting token from localstorage
+    //     return !!token && !this.isTokenExpired(token) // handwaiving here
+    // }
 
-    isTokenExpired(token) {
-        try {
-            const decoded = decode(token);
-            console.log(decoded)
-            if (decoded.exp < Date.now() / 1000) { // Checking if token is expired.
-                return true;
-            }
-            else
-                return false;
-        }
-        catch (err) {
-            return false;
-        }
-    }
+    // isTokenExpired(token) {
+    //     try {
+    //         const decoded = decode(token);
+    //         console.log(decoded)
+    //         if (decoded.exp < Date.now() / 1000) { // Checking if token is expired.
+    //             return true;
+    //         }
+    //         else
+    //             return false;
+    //     }
+    //     catch (err) {
+    //         return false;
+    //     }
+    // }
 
     render() {
 
@@ -134,7 +145,7 @@ class Login extends Component {
         return (
             <div id="Login" >
                 <Row>
-                    <form onSubmit={this.login} method="POST" encType="application/x-www-form-urlencoded">
+                    <div>
                     
                         <FormGroup controlId="email" validationState={ formSubmitted ? (errors.email ? 'error' : 'success') : null }>
                             <ControlLabel>Email</ControlLabel>
@@ -150,14 +161,14 @@ class Login extends Component {
                             <HelpBlock>{errors.password}</HelpBlock>
                         }
                         </FormGroup>
-                        <Button type="submit" bsStyle="primary" href="/restaurants">Log In!</Button>
+                        <Button bsStyle="primary" onClick={this.login} href="/restaurants">Log In!</Button>
                         <p>{this.state.message}</p>
 
-                    </form>
+                    </div>
                 </Row>
             </div>
         )
     }
 }
 
-export default Login;
+export default withRouter(Login);
