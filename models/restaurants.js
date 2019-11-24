@@ -7,20 +7,60 @@ username: {
  trim: true,
  required: true,
  },
-restaurantname: {
+userRestaurantName: {
  type: String,
  trim: true,
  required: true,
 },
-restauranttagline: {
+userRestaurantTagline: {
  type: String,
  trim: true,
  required: true,
 },
-restaurantabouttext: {
+userRestaurantAboutText: {
  type: String,
  trim: true,
  required: true,
-}
-});
+},
+userAppetizerHeader: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userAppetizerOneName: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userAppetizerOneDescription: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userAppetizerOnePrice: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userHoursWeekday: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userHoursWeekend: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userRestaurantAddress: {
+    type: String,
+    trim: true,
+    required: true,
+   },
+userNumber: {
+    type: String,
+    trim: true,
+    required: true,
+   }
+});  
 module.exports = mongoose.model('Restaurant', RestaurantSchema)

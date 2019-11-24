@@ -69,7 +69,7 @@ a{
 	color:#fff; 
 	text-transform:uppercase;
 }
-.navigation .nav > li > a:focus, .nav > li > a:hover{
+.navigation .nav > li > a:hover{
 	background-color:red;
 }
 
@@ -80,13 +80,6 @@ a{
 	float:none; 
 	display:inline-block;
 }
-
- .row{
-	margin-bottom: -50px;
-}
-/* #navbar .navbar-collapse .collapse{
-margin: -50px; 
- } */
 
 /* end-navigation */
 /* slider */

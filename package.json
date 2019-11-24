@@ -4,8 +4,13 @@
   "description": "git init -y\r npm install bcrypt body-parser express jsonwebtoken mongoose morgan --save\r npm install nodemon -g",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -14,6 +19,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7",
+    "webpack-dev-server": "^3.9.0"
+  },
   "bugs": {
     "url": "https://github.com/RRR2019/passport-login/issues"
   },
@@ -22,9 +32,11 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.8",
+    "mongoose": "^5.7.10",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.4"
+    "router": "^1.3.3",
+    "serve-static": "^1.14.1"
   }
 }
