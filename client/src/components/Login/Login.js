@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
+import { Row, FormGroup, FormControl, Button } from 'react-bootstrap';
 import './login.css';
 import { isEmail, isEmpty } from "../../shared/validator";
 // import API from "../../utils/API"
 import { withRouter } from 'react-router-dom';
 import AuthService from '../AuthService';
+
 
 class Login extends Component {
 
@@ -25,9 +26,13 @@ class Login extends Component {
 
     componentWillMount(){
         if(this.Auth.loggedIn()){
-            this.props.history.replace('/register');
+            this.props.history.push("/"+this.Auth.getProfile().username);
+            console.log(this.props.history)
         }
-        
+    }
+
+    register(){
+        this.props.history.push("/"+"register");
     }
 
     handleInputChange = (event) => {
@@ -76,7 +81,7 @@ class Login extends Component {
 
             this.Auth.login(formData)
             .then( res=>{
-                this.props.history.replace('/')
+                this.props.history.push("/"+this.Auth.getProfile().username);
             })
             .catch(err =>{
                 console.log(err);
@@ -107,61 +112,35 @@ class Login extends Component {
         }
     }
 
-    // setToken(idToken) {
-    //     // Saves user token to localStorage
-    //     localStorage.setItem('id_token', idToken)
-    // }
-
-    // getToken() {
-    //     // Retrieves the user token from localStorage
-    //     return localStorage.getItem('id_token')
-    // }
-
-    // loggedIn() {
-    //     // Checks if there is a saved token and it's still valid
-    //     const token = this.getToken() // GEtting token from localstorage
-    //     return !!token && !this.isTokenExpired(token) // handwaiving here
-    // }
-
-    // isTokenExpired(token) {
-    //     try {
-    //         const decoded = decode(token);
-    //         console.log(decoded)
-    //         if (decoded.exp < Date.now() / 1000) { // Checking if token is expired.
-    //             return true;
-    //         }
-    //         else
-    //             return false;
-    //     }
-    //     catch (err) {
-    //         return false;
-    //     }
-    // }
+   
 
     render() {
 
         const { errors, formSubmitted } = this.state;
 
         return (
+            
             <div id="Login" >
+                
                 <Row>
                     <div>
                     
                         <FormGroup controlId="email" validationState={ formSubmitted ? (errors.email ? 'error' : 'success') : null }>
-                            <ControlLabel>Email</ControlLabel>
+                            {/* <ControlLabel>Email</ControlLabel> */}
                             <FormControl type="text" name="email" placeholder="Enter your email" onChange={this.handleInputChange} />
                         { errors.email &&
-                            <HelpBlock>{errors.email}</HelpBlock>
+                            <p>{errors.email}</p>
                         }
                         </FormGroup>
                         <FormGroup controlId="password" validationState={ formSubmitted ? (errors.password ? 'error' : 'success') : null }>
-                            <ControlLabel>Password</ControlLabel>
+                            {/* <ControlLabel>Password</ControlLabel> */}
                             <FormControl type="password" name="password" placeholder="Enter your password" onChange={this.handleInputChange} />
                         { errors.password &&
-                            <HelpBlock>{errors.password}</HelpBlock>
+                            <p>{errors.password}</p>
                         }
                         </FormGroup>
-                        <Button bsStyle="primary" onClick={this.login} href="/restaurants">Log In!</Button>
+                        <Button bsStyle="primary" onClick={this.login} href="/:username">Log In!</Button>
+                        <Button bsStyle="secondary" onClick={this.register} href="/register">Register!</Button>
                         <p>{this.state.message}</p>
 
                     </div>

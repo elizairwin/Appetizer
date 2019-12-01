@@ -1,5 +1,6 @@
 const userModel = require('../../../../models/users');
-const bcrypt = require('bcrypt'); 
+const restaurantModel = require("../../../../models/restaurants");
+const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
 module.exports = {
  create: function(req, res, next) {
@@ -9,7 +10,6 @@ module.exports = {
        next(err);
       else
        res.json({status: "success", message: "User added successfully!!!", data: null});
-      
     });
  },
 
@@ -22,7 +22,7 @@ authenticate: function(req, res, next) {
      else {
 
 if(bcrypt.compareSync(req.body.password, userInfo.password)) {
-    const token = jwt.sign({id: userInfo._id}, req.app.get('secretKey'), { expiresIn: '1h' });
+    const token = jwt.sign({id: userInfo._id, username: userInfo.name}, req.app.get('secretKey'), { expiresIn: '1h' });
     res.json({status:"success", message: "user found!!!", data:{user: userInfo, token:token}});
 }
 else{
@@ -31,4 +31,27 @@ else{
         }
     });
  },
+
+ getRestaurantAndPermissions: function(req, res, next) {
+    userModel.findOne({name:req.params.username}, function(err, userInfo){
+        res.json({restaurant: userInfo.restaurant, id: userInfo._id})
+    })
+ },
+ 
+ customizeRestaurant: function(req, res, next) {
+    console.log("inside update name route");
+    console.log(req.body, req.params.userid);
+    
+      userModel.findByIdAndUpdate(req.params.userid, {restaurant: req.body}, {
+        runValidators: true
+      })
+      .then(dbRestaurant => {
+        console.log("Done");
+        console.log(dbRestaurant);
+        res.json(dbRestaurant);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+ }
 }

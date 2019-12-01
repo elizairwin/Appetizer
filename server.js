@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const routes= require ("./server/routes")
 var jwt = require('jsonwebtoken');
 var app = express();
+var path = require("path");
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,14 +15,27 @@ app.set('secretKey', 'nodeRestApi'); // jwt secret token
 
 // connection to mongodb
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/customizeRestaurant", { useNewUrlParser: true });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.use(express.static("public"));
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + 'index.html'));
+//   });
+
 
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
+
+// // Define middleware here
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 app.get('/', function(req, res){
-res.json({"tutorial" : "Build REST API with node.js"});
+res.json({"Appetizer" : "Template API"});
 });
 
 // public route
@@ -31,6 +45,7 @@ app.use(routes)
 app.use('/api', validateUser, restaurants);
 
 restaurantroute(app);
+
 
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);

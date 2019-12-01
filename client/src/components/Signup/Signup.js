@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import { Row, FormGroup, FormControl, ControlLabel, Button, HelpBlock } from 'react-bootstrap';
+import { Row, FormGroup, FormControl, Button } from 'react-bootstrap';
 import './signup.css';
 import { isEmail, isEmpty, isLength, isContainWhiteSpace } from "../../shared/validator";
 import API from "../../utils/API"
+import AuthService from "../AuthService";
+import { withRouter } from "react-router-dom";
+
+
 
 class Signup extends Component {
 
     constructor(props) {
         super(props)
-
+        this.Auth = new AuthService();
         this.state = {
             formData: {}, // Contains login form data
             errors: {}, // Contains login field errors
@@ -16,7 +20,11 @@ class Signup extends Component {
             loading: false // Indicates in progress state of login form
         }
     }
-
+    componentDidMount() {
+        if(this.Auth.loggedIn()){
+            this.props.history.push("/"+this.Auth.getProfile().username);
+        }
+    }
     handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -71,10 +79,25 @@ class Signup extends Component {
 
 
             API.registerUser(formData)
-            .then(alert("You created a user"))
+            .then(()=> {
+
+                let loginData ={
+                    email: formData.email,
+                    password: formData.password
+                }
+
+                this.Auth.login(loginData)
+                .then( res=>{
+                    this.props.history.push("/"+this.Auth.getProfile().username);
+                })
+                .catch(err =>{
+                    console.log(err);
+                })
+
+            })
             .catch(err => console.log(err))
 
-           window.location.reload();
+        //    window.location.reload();
 
         } else {
             this.setState({
@@ -93,24 +116,24 @@ class Signup extends Component {
                 <Row>
                     <div>
                     <FormGroup controlId="name" validationState={ formSubmitted ? (errors.name ? 'error' : 'success') : null }>
-                            <ControlLabel>Name</ControlLabel>
+                            {/* <ControlLabel>Name</ControlLabel> */}
                             <FormControl type="text" name="name" placeholder="Enter your name" onChange={this.handleInputChange} />
                         { errors.name &&
-                            <HelpBlock>{errors.name}</HelpBlock>
+                            <p>{errors.name}</p>
                         }
                         </FormGroup>
                         <FormGroup controlId="email" validationState={ formSubmitted ? (errors.email ? 'error' : 'success') : null }>
-                            <ControlLabel>Email</ControlLabel>
+                            {/* <ControlLabel>Email</ControlLabel> */}
                             <FormControl type="text" name="email" placeholder="Enter your email" onChange={this.handleInputChange} />
                         { errors.email &&
-                            <HelpBlock>{errors.email}</HelpBlock>
+                            <p>{errors.email}</p>
                         }
                         </FormGroup>
                         <FormGroup controlId="password" validationState={ formSubmitted ? (errors.password ? 'error' : 'success') : null }>
-                            <ControlLabel>Password</ControlLabel>
+                            {/* <ControlLabel>Password</ControlLabel> */}
                             <FormControl type="password" name="password" placeholder="Enter your password" onChange={this.handleInputChange} />
                         { errors.password &&
-                            <HelpBlock>{errors.password}</HelpBlock>
+                            <p>{errors.password}</p>
                         }
                         </FormGroup>
                         <Button type="submit" bsStyle="primary" onClick={this.login}>Register</Button>
@@ -124,4 +147,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default withRouter(Signup);

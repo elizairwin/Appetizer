@@ -18,8 +18,15 @@ export default {
     getRestaurants: function (token){
         console.log(token)
         return axios.post("/api/restaurants", {token: token})
+    },
+
+    getRestaurant: function (username){
+        return axios.get("api/users/restaurant/"+username);
+    },
+
+    saveEditableContent: function (userId,body) {
+        console.log(userId, body);
+        return axios.put("api/users/customizeRestaurant/"+userId,body);
     }
-
-
 
 }

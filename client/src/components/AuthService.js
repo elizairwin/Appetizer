@@ -66,7 +66,6 @@ export default class AuthService {
         return decode(this.getToken());
     }
 
-
     fetch(url, options) {
         // performs api calls sending the required authentication headers
         const headers = {

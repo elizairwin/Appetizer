@@ -7,14 +7,6 @@ module.exports = function(app) {
   app.get("/customrestaurantdata/:username", (req, res) => {
     console.log("Inside get route");
     console.log(req.params.username);
-    dbRestaurant.find({username: req.params.username})
-      .then(dbRestaurant => {
-        console.log(dbRestaurant);
-        res.json(dbRestaurant);
-      })
-      .catch(err => {
-        res.json(err);
-      });
   });
 
   app.post("/seedinsert", (req, res) => {
@@ -121,67 +113,4 @@ module.exports = function(app) {
       process.exit(1);
     });
   });
-
-   app.post("/customizeRestaurantName/:userid", (req, res) => {
-    console.log("inside update name route");
-     dbRestaurant.updateOne(
-       {"username": req.params.userid,
-        "userRestaurantName": req.body.userRestaurantName
-       })
-       .then(dbRestaurant => {
-         console.log("Done");
-         console.log(dbRestaurant);
-         res.redirect("../../index.html");
-       })
-       .catch(err => {
-         res.json(err);
-       });
-   });
-
-   app.post("/customizeRestaurantTagline/:userid", (req, res) => {
-    console.log("inside update tag line route");
-     dbRestaurant.updateOne(
-       {"username": req.params.userid,
-        "userRestaurantTagline": req.body.userRestaurantTagline
-       })
-       .then(dbRestaurant => {
-         console.log("Done");
-         console.log(dbRestaurant);
-         res.redirect("../../index.html");
-       })
-       .catch(err => {
-         res.json(err);
-       });
-   });
-
-   app.post("/customizeRestaurantAboutText/:userid", (req, res) => {
-    console.log("inside update about text route");
-     dbRestaurant.updateOne(
-       {"username": req.params.userid,
-        "userRestaurantAboutText": req.body.userRestaurantAboutText
-       })
-       .then(dbRestaurant => {
-         console.log("Done");
-         console.log(dbRestaurant);
-         res.redirect("../../index.html");
-       })
-       .catch(err => {
-         res.json(err);
-       });
-   });
-   app.post("/customizeAppetizerHeader/:userid", (req, res) => {
-    console.log("inside update appetizer route");
-     dbRestaurant.updateOne(
-       {"username": req.params.userid,
-        "userAppetizerHeader": req.body.userAppetizerHeader
-       })
-       .then(dbRestaurant => {
-         console.log("Done");
-         console.log(dbRestaurant);
-         res.redirect("../../index.html");
-       })
-       .catch(err => {
-         res.json(err);
-       });
-   });
 }

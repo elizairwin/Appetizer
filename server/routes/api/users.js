@@ -1,15 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const userController = require('../../app/api/controllers/users');
+const userController = require("../../app/api/controllers/users");
 
+router.route("/register").post(userController.create);
 
-router.route('/register')
-    .post(userController.create);
+router.route("/authenticate").post(userController.authenticate);
 
-router.route('/authenticate')
-    .post(userController.authenticate);
+router.get("/restaurant/:username", userController.getRestaurantAndPermissions);
 
+router.put("/customizeRestaurant/:userid", userController.customizeRestaurant)
 
-  module.exports = router;
-
-
+module.exports = router;
